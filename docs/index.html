@@ -5,89 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JP RWEE Enumerator Dashboard</title>
 <style>
-  /* ── THEME VARIABLES ─────────────────────────────────── */
   :root[data-theme="dark"] {
-    --bg:         #0f1923;
-    --bg2:        #1a2a3a;
-    --card:       #1e3a5f;
-    --card2:      #162d47;
-    --primary:    #4a9edd;
-    --primary2:   #2d7db5;
-    --green:      #2ecc71;
-    --blue:       #4a9edd;
-    --orange:     #e67e22;
-    --yellow:     #f1c40f;
-    --grey:       #95a5a6;
-    --red:        #e74c3c;
-    --text:       #ecf0f1;
-    --subtext:    #a0b4c8;
-    --border:     #2d4a6a;
-    --thead:      #162d47;
-    --row-hover:  #1e3a5f;
-    --adm2-bg:    #1a3352;
-    --adm3-bg:    #162a40;
-    --badge-bg:   #2d5f8a;
-    --radius:     10px;
-    --shadow:     0 2px 12px rgba(0,0,0,.4);
+    --bg:#0f1923; --bg2:#1a2a3a; --card:#1e3a5f; --card2:#162d47;
+    --primary:#4a9edd; --green:#2ecc71; --blue:#4a9edd;
+    --orange:#e67e22; --yellow:#f1c40f; --grey:#95a5a6;
+    --text:#ecf0f1; --subtext:#a0b4c8; --border:#2d4a6a;
+    --thead:#162d47; --row-hover:#1e3a5f;
+    --adm3-block-border:#2d5f8a; --adm3-header-bg:#1a3352;
+    --adm3-row-bg:#0f2035; --adm3-row-text:#b0c8e0;
+    --radius:10px; --shadow:0 2px 12px rgba(0,0,0,.4);
   }
   :root[data-theme="light"] {
-    --bg:         #f4f6fb;
-    --bg2:        #ffffff;
-    --card:       #ffffff;
-    --card2:      #eef2fa;
-    --primary:    #0057a8;
-    --primary2:   #003d80;
-    --green:      #1a9e5f;
-    --blue:       #0d6efd;
-    --orange:     #e07000;
-    --yellow:     #b8860b;
-    --grey:       #6c757d;
-    --red:        #dc3545;
-    --text:       #1a2233;
-    --subtext:    #5a6474;
-    --border:     #dde3ef;
-    --thead:      #eef2fa;
-    --row-hover:  #f7f9ff;
-    --adm2-bg:    #eef2fa;
-    --adm3-bg:    #f7f9ff;
-    --badge-bg:   #0057a8;
-    --radius:     10px;
-    --shadow:     0 2px 8px rgba(0,0,0,.08);
+    --bg:#f4f6fb; --bg2:#ffffff; --card:#ffffff; --card2:#eef2fa;
+    --primary:#0057a8; --green:#1a9e5f; --blue:#0d6efd;
+    --orange:#e07000; --yellow:#b8860b; --grey:#6c757d;
+    --text:#1a2233; --subtext:#5a6474; --border:#dde3ef;
+    --thead:#eef2fa; --row-hover:#f7f9ff;
+    --adm3-block-border:#0057a8; --adm3-header-bg:#dde8f5;
+    --adm3-row-bg:#f7f9ff; --adm3-row-text:#1a2233;
+    --radius:10px; --shadow:0 2px 8px rgba(0,0,0,.08);
   }
-
-  /* ── RESET & BASE ────────────────────────────────────── */
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; transition: background .3s, color .3s; }
-
-  /* ── HEADER ──────────────────────────────────────────── */
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; transition:background .3s,color .3s; }
   header { background:var(--card); border-bottom:3px solid var(--primary); padding:16px 28px 12px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; box-shadow:var(--shadow); }
   .header-left h1 { font-size:1.3rem; font-weight:700; color:var(--primary); }
   .header-left p  { font-size:.83rem; color:var(--subtext); margin-top:2px; }
   .meta { font-size:.75rem; color:var(--subtext); margin-top:4px; }
-
-  /* ── THEME TOGGLE ────────────────────────────────────── */
-  .theme-toggle { display:flex; align-items:center; gap:8px; cursor:pointer;
-                   background:var(--bg2); border:1.5px solid var(--border);
-                   border-radius:20px; padding:6px 14px; font-size:.82rem;
-                   color:var(--subtext); transition:all .2s; user-select:none; }
+  .theme-toggle { display:flex; align-items:center; gap:8px; cursor:pointer; background:var(--bg2); border:1.5px solid var(--border); border-radius:20px; padding:6px 14px; font-size:.82rem; color:var(--subtext); transition:all .2s; user-select:none; }
   .theme-toggle:hover { border-color:var(--primary); color:var(--primary); }
-  .toggle-icon { font-size:1rem; }
-
-  /* ── OVERALL PROGRESS ────────────────────────────────── */
-  .overall { background:var(--card); padding:16px 28px; border-bottom:1px solid var(--border);
-              display:flex; align-items:center; gap:24px; flex-wrap:wrap; box-shadow:var(--shadow); }
+  .overall { background:var(--card); padding:16px 28px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:24px; flex-wrap:wrap; box-shadow:var(--shadow); }
   .overall-label { font-size:.85rem; color:var(--subtext); margin-bottom:3px; }
   .overall-num { font-size:1.5rem; font-weight:700; color:var(--primary); }
   .overall-sub { font-size:.75rem; color:var(--subtext); margin-top:2px; }
   .overall-bar-wrap { flex:1; min-width:200px; background:var(--border); border-radius:6px; height:12px; }
   .overall-bar { background:var(--primary); height:12px; border-radius:6px; transition:width .6s; }
   .overall-pct { font-size:1.1rem; font-weight:700; color:var(--primary); min-width:40px; text-align:right; }
-
-  /* ── COUNTRY CARDS ───────────────────────────────────── */
   .country-cards { display:flex; gap:14px; padding:18px 28px; flex-wrap:wrap; }
-  .country-card { background:var(--card); border:1.5px solid var(--border); border-radius:var(--radius);
-                   padding:14px 16px; flex:1; min-width:170px; cursor:pointer;
-                   transition:box-shadow .2s, border-color .2s; box-shadow:var(--shadow); }
+  .country-card { background:var(--card); border:1.5px solid var(--border); border-radius:var(--radius); padding:14px 16px; flex:1; min-width:170px; cursor:pointer; transition:box-shadow .2s,border-color .2s; box-shadow:var(--shadow); }
   .country-card:hover { box-shadow:0 6px 18px rgba(74,158,221,.25); border-color:var(--primary); }
   .card-flag { font-size:1.7rem; }
   .card-label { font-size:.8rem; color:var(--subtext); margin-top:2px; }
@@ -97,27 +51,16 @@
   .progress-bar { background:var(--primary); height:7px; border-radius:4px; }
   .card-pct { font-size:.76rem; color:var(--subtext); }
   .card-sub { font-size:.73rem; color:var(--subtext); margin-top:5px; line-height:1.5; }
-
-  /* ── TABS ────────────────────────────────────────────── */
-  .tabs { padding:0 28px; border-bottom:2px solid var(--border); background:var(--card);
-           display:flex; flex-wrap:wrap; gap:2px; }
-  .tab-btn { padding:10px 16px; font-size:.86rem; border:none; background:transparent;
-              cursor:pointer; border-bottom:3px solid transparent; color:var(--subtext);
-              font-weight:500; margin-bottom:-2px; transition:all .15s; }
-  .tab-btn.active, .tab-btn:hover { color:var(--primary); border-bottom-color:var(--primary); }
-
-  /* ── TAB CONTENT ─────────────────────────────────────── */
+  .tabs { padding:0 28px; border-bottom:2px solid var(--border); background:var(--card); display:flex; flex-wrap:wrap; gap:2px; }
+  .tab-btn { padding:10px 16px; font-size:.86rem; border:none; background:transparent; cursor:pointer; border-bottom:3px solid transparent; color:var(--subtext); font-weight:500; margin-bottom:-2px; transition:all .15s; }
+  .tab-btn.active,.tab-btn:hover { color:var(--primary); border-bottom-color:var(--primary); }
   .tab-content { padding:22px 28px; }
   .tab-content.hidden { display:none; }
   .tab-content h2 { font-size:1.1rem; color:var(--primary); margin-bottom:14px; font-weight:700; }
-  .tab-content h3 { font-size:.88rem; color:var(--subtext); margin:20px 0 6px;
-                     text-transform:uppercase; letter-spacing:.6px; font-weight:700; }
+  .tab-content h3 { font-size:.88rem; color:var(--subtext); margin:22px 0 4px; text-transform:uppercase; letter-spacing:.6px; font-weight:700; }
   .table-note { font-size:.75rem; color:var(--subtext); margin-bottom:8px; font-style:italic; }
-
-  /* ── STAT BOXES ──────────────────────────────────────── */
   .stats-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
-  .stat-box { background:var(--card2); border:1.5px solid var(--border); border-radius:var(--radius);
-               padding:12px 14px; text-align:center; min-width:85px; flex:1; box-shadow:var(--shadow); }
+  .stat-box { background:var(--card2); border:1.5px solid var(--border); border-radius:var(--radius); padding:12px 14px; text-align:center; min-width:85px; flex:1; box-shadow:var(--shadow); }
   .stat-box.green  { border-color:var(--green);  }
   .stat-box.blue   { border-color:var(--blue);   }
   .stat-box.orange { border-color:var(--orange); }
@@ -129,92 +72,72 @@
   .stat-box.orange .stat-num { color:var(--orange); }
   .stat-box.yellow .stat-num { color:var(--yellow); }
   .stat-box.grey   .stat-num { color:var(--grey);   }
-  .stat-lbl { font-size:.68rem; color:var(--subtext); margin-top:2px;
-               text-transform:uppercase; letter-spacing:.4px; }
-
-  /* ── TABLES ──────────────────────────────────────────── */
-  table { width:100%; border-collapse:collapse; background:var(--card2);
-           border-radius:var(--radius); overflow:hidden;
-           box-shadow:var(--shadow); font-size:.84rem; margin-bottom:6px; }
+  .stat-lbl { font-size:.68rem; color:var(--subtext); margin-top:2px; text-transform:uppercase; letter-spacing:.4px; }
+  table { width:100%; border-collapse:collapse; background:var(--card2); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); font-size:.84rem; margin-bottom:6px; }
   thead { background:var(--thead); }
-  th { padding:9px 12px; text-align:left; font-weight:700; color:var(--subtext);
-        font-size:.74rem; text-transform:uppercase; letter-spacing:.5px;
-        border-bottom:1.5px solid var(--border); }
+  th { padding:9px 12px; text-align:left; font-weight:700; color:var(--subtext); font-size:.74rem; text-transform:uppercase; letter-spacing:.5px; border-bottom:1.5px solid var(--border); }
   th.th-c { text-align:center; }
   td { padding:8px 12px; border-bottom:1px solid var(--border); color:var(--text); }
   tr:last-child td { border-bottom:none; }
-
-  /* ADM2 rows */
-  tr.adm2-row td { background:var(--adm2-bg); font-weight:600; }
-  tr.adm2-row:hover td { filter:brightness(1.1); }
-
-  /* ADM3 rows */
-  tr.adm3-row td { background:var(--adm3-bg); font-size:.82rem; }
-  tr.adm3-row:hover td { filter:brightness(1.1); }
-
-  /* Regular rows */
-  tr:not(.adm2-row):not(.adm3-row):hover td { background:var(--row-hover); }
-
-  .area-label { min-width:160px; }
-  .adm2-badge { background:var(--badge-bg); color:#fff; font-size:.66rem;
-                 padding:2px 6px; border-radius:4px; margin-right:6px;
-                 font-weight:700; letter-spacing:.3px; text-transform:uppercase; }
-  .adm3-indent { color:var(--subtext); margin-right:4px; font-size:.9rem; padding-left:12px; }
-
+  tr:not(.adm3-row):hover td { background:var(--row-hover); }
+  .area-name { min-width:140px; font-weight:600; }
   .num-c { text-align:center; font-variant-numeric:tabular-nums; }
-  .complete { font-weight:700; color:var(--green); }
+  .complete { color:var(--green); font-weight:700; }
   .refused  { color:var(--orange); }
   .callback { color:var(--yellow); }
-  .pct-val  { font-weight:700; color:var(--primary); }
+  .pct-val  { color:var(--primary); font-weight:700; }
   .empty { text-align:center; color:var(--subtext); font-style:italic; padding:18px; }
+  .empty-msg { text-align:center; color:var(--subtext); font-style:italic; padding:18px; font-size:.84rem; }
 
-  /* ── FOOTER ──────────────────────────────────────────── */
-  footer { text-align:center; padding:14px; font-size:.75rem; color:var(--subtext);
-            border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
+  /* ADM3 header table — no bottom radius, connects to blocks below */
+  .adm3-header-table { border-radius:var(--radius) var(--radius) 0 0; margin-bottom:0; box-shadow:none; border-bottom:none; }
+  .adm3-header-table thead th { border-bottom:none; }
 
-  @media (max-width:640px) {
-    .country-cards, .tab-content { padding:12px 14px; }
-    .tabs, header { padding:12px 14px; }
-    .overall { padding:14px 14px; }
-  }
+  /* ADM3 province blocks */
+  .adm3-province-block { border:1.5px solid var(--adm3-block-border); border-top:none; margin-bottom:10px; overflow:hidden; }
+  .adm3-province-block:last-child { border-radius:0 0 var(--radius) var(--radius); margin-bottom:6px; }
+  .adm3-province-block:not(:last-child) { border-bottom:1.5px solid var(--adm3-block-border); }
+  .adm3-province-header { background:var(--adm3-header-bg); padding:5px 12px; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--primary); border-bottom:1px solid var(--adm3-block-border); }
+  .adm3-inner-table { width:100%; border-collapse:collapse; font-size:.84rem; background:var(--adm3-row-bg); margin:0; box-shadow:none; border-radius:0; }
+  .adm3-row td { background:var(--adm3-row-bg); color:var(--adm3-row-text); border-bottom:1px solid var(--border); padding:8px 12px; }
+  .adm3-row:last-child td { border-bottom:none; }
+  .adm3-row:hover td { filter:brightness(1.08); }
+
+  footer { text-align:center; padding:14px; font-size:.75rem; color:var(--subtext); border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
+  @media(max-width:640px) { .country-cards,.tab-content { padding:12px 14px; } .tabs,header,.overall { padding:12px 14px; } }
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-left">
     <h1>JP RWEE Enumerator Dashboard</h1>
     <p>Joint Programme for Rural Women Economic Empowerment · WFP Pacific</p>
-    <div class="meta">Last updated: 2026-06-03 04:16 UTC &nbsp;·&nbsp; 107 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-03 04:35 UTC &nbsp;·&nbsp; 109 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span class="toggle-icon">☀️</span>
     <span id="themeLbl">Light Mode</span>
   </div>
 </header>
-
 <div class="overall">
   <div>
     <div class="overall-label">Overall Progress (all 4 countries)</div>
-    <div class="overall-num">69
+    <div class="overall-num">71
       <span style="font-size:.95rem;font-weight:400;color:var(--subtext)">/ 1600 target</span>
     </div>
     <div class="overall-sub">Completed = answered + consented + confirmed adult</div>
   </div>
-  <div class="overall-bar-wrap">
-    <div class="overall-bar" style="width:4%"></div>
-  </div>
+  <div class="overall-bar-wrap"><div class="overall-bar" style="width:4%"></div></div>
   <div class="overall-pct">4%</div>
 </div>
-
 <div class="country-cards">
         <div class="country-card" onclick="showTab('Fiji')">
             <div class="card-flag">🇫🇯</div>
             <div class="card-label">Fiji</div>
-            <div class="card-stat">13<span class="card-target">/400</span></div>
-            <div class="progress-bar-wrap"><div class="progress-bar" style="width:3%"></div></div>
-            <div class="card-pct">3% complete</div>
-            <div class="card-sub">✅ 16 answered &nbsp;·&nbsp; 📵 0 no answer</div>
+            <div class="card-stat">14<span class="card-target">/400</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:4%"></div></div>
+            <div class="card-pct">4% complete</div>
+            <div class="card-sub">✅ 17 answered &nbsp;·&nbsp; 📵 0 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Kiribati')">
             <div class="card-flag">🇰🇮</div>
@@ -227,10 +150,10 @@
         <div class="country-card" onclick="showTab('Tonga')">
             <div class="card-flag">🇹🇴</div>
             <div class="card-label">Tonga</div>
-            <div class="card-stat">21<span class="card-target">/400</span></div>
-            <div class="progress-bar-wrap"><div class="progress-bar" style="width:5%"></div></div>
-            <div class="card-pct">5% complete</div>
-            <div class="card-sub">✅ 27 answered &nbsp;·&nbsp; 📵 12 no answer</div>
+            <div class="card-stat">22<span class="card-target">/400</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:6%"></div></div>
+            <div class="card-pct">6% complete</div>
+            <div class="card-sub">✅ 28 answered &nbsp;·&nbsp; 📵 12 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Solomon')">
             <div class="card-flag">🇸🇧</div>
@@ -242,400 +165,507 @@
         </div></div>
 <div class="tabs"><button class="tab-btn active" onclick="showTab('Fiji')" id="tab-Fiji">🇫🇯 Fiji</button><button class="tab-btn " onclick="showTab('Kiribati')" id="tab-Kiribati">🇰🇮 Kiribati</button><button class="tab-btn " onclick="showTab('Tonga')" id="tab-Tonga">🇹🇴 Tonga</button><button class="tab-btn " onclick="showTab('Solomon')" id="tab-Solomon">🇸🇧 Solomon Islands</button></div>
 
-        <div class="tab-content " id="content-Fiji">
-            <h2>🇫🇯 Fiji &mdash; Progress Overview</h2>
-            <div class="stats-row">
-                <div class="stat-box"><div class="stat-num">16</div><div class="stat-lbl">Total Calls</div></div>
-                <div class="stat-box green"><div class="stat-num">13</div><div class="stat-lbl">Completed</div></div>
-                <div class="stat-box blue"><div class="stat-num">16</div><div class="stat-lbl">Answered</div></div>
-                <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
-                <div class="stat-box orange"><div class="stat-num">3</div><div class="stat-lbl">Refused</div></div>
-                <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
-            </div>
+<div class="tab-content " id="content-Fiji">
+  <h2>🇫🇯 Fiji &mdash; Progress Overview</h2>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">17</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">14</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box blue"><div class="stat-num">17</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
+    <div class="stat-box orange"><div class="stat-num">3</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
+  </div>
 
-            <h3>By Province (ADM2) &amp; District (ADM3)</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of total calls within that row's group</p>
-            <table>
-                <thead><tr><th>Area</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Ba</td>
-                <td class="num-c">13</td>
-                <td class="num-c complete">13</td>
-                <td class="num-c">13</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">81.2%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Magodro</td>
-                <td class="num-c">13</td>
-                <td class="num-c complete">13</td>
-                <td class="num-c">13</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">100.0%</td>
-            </tr><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Unknown</td>
-                <td class="num-c">3</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">3</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">3</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Unknown</td>
-                <td class="num-c">3</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">3</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">3</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr></tbody>
-            </table>
+  <h3>By Province (ADM2)</h3>
+  <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Province</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Ba</td>
+<td class="num-c">14</td>
+<td class="num-c complete">14</td>
+<td class="num-c">14</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">100.0%</td>
+</tr><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">3</td>
+<td class="num-c complete">0</td>
+<td class="num-c">3</td>
+<td class="num-c">0</td>
+<td class="num-c refused">3</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody>
+  </table>
 
-            <h3>By Enumerator</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of that enumerator's total calls</p>
-            <table>
-                <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr>
-                <td>Shannon Chand</td>
-                <td class="num-c">15</td>
-                <td class="num-c complete">12</td>
-                <td class="num-c">15</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">3</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">75.0%</td>
-            </tr><tr>
-                <td>Elina Seninunukula</td>
-                <td class="num-c">1</td>
-                <td class="num-c complete">1</td>
-                <td class="num-c">1</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">6.2%</td>
-            </tr></tbody>
-            </table>
-        </div>
-        <div class="tab-content hidden" id="content-Kiribati">
-            <h2>🇰🇮 Kiribati &mdash; Progress Overview</h2>
-            <div class="stats-row">
-                <div class="stat-box"><div class="stat-num">49</div><div class="stat-lbl">Total Calls</div></div>
-                <div class="stat-box green"><div class="stat-num">35</div><div class="stat-lbl">Completed</div></div>
-                <div class="stat-box blue"><div class="stat-num">36</div><div class="stat-lbl">Answered</div></div>
-                <div class="stat-box grey"><div class="stat-num">13</div><div class="stat-lbl">No Answer</div></div>
-                <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
-                <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
-            </div>
+  <h3>By District (ADM3)</h3>
+  <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all districts add up to 100%</p>
+  <table class="adm3-header-table">
+    <thead><tr>
+  <th style="text-align:left">District</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+  </table>
+  <div class="adm3-province-block">
+<div class="adm3-province-header">Province: Ba</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Magodro</td>
+<td class="num-c">14</td>
+<td class="num-c complete">14</td>
+<td class="num-c">14</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">100.0%</td>
+</tr></tbody></table>
+</div><div class="adm3-province-block">
+<div class="adm3-province-header">Province: Unknown</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Unknown</td>
+<td class="num-c">3</td>
+<td class="num-c complete">0</td>
+<td class="num-c">3</td>
+<td class="num-c">0</td>
+<td class="num-c refused">3</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody></table>
+</div>
 
-            <h3>By Province (ADM2) &amp; District (ADM3)</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of total calls within that row's group</p>
-            <table>
-                <thead><tr><th>Area</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Gilbert Islands</td>
-                <td class="num-c">35</td>
-                <td class="num-c complete">35</td>
-                <td class="num-c">35</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">71.4%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Nonouti</td>
-                <td class="num-c">19</td>
-                <td class="num-c complete">19</td>
-                <td class="num-c">19</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">54.3%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Onotoa</td>
-                <td class="num-c">10</td>
-                <td class="num-c complete">10</td>
-                <td class="num-c">10</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">28.6%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> North Tabiteuea</td>
-                <td class="num-c">4</td>
-                <td class="num-c complete">4</td>
-                <td class="num-c">4</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">11.4%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> South Tabiteuea</td>
-                <td class="num-c">2</td>
-                <td class="num-c complete">2</td>
-                <td class="num-c">2</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">5.7%</td>
-            </tr><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Unknown</td>
-                <td class="num-c">14</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">1</td>
-                <td class="num-c">13</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Unknown</td>
-                <td class="num-c">14</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">1</td>
-                <td class="num-c">13</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr></tbody>
-            </table>
+  <h3>By Enumerator</h3>
+  <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Enumerator</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Shannon Chand</td>
+<td class="num-c">16</td>
+<td class="num-c complete">13</td>
+<td class="num-c">16</td>
+<td class="num-c">0</td>
+<td class="num-c refused">3</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">76.5%</td>
+</tr><tr>
+<td class="area-name">Elina Seninunukula</td>
+<td class="num-c">1</td>
+<td class="num-c complete">1</td>
+<td class="num-c">1</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">5.9%</td>
+</tr></tbody>
+  </table>
+</div>
+<div class="tab-content hidden" id="content-Kiribati">
+  <h2>🇰🇮 Kiribati &mdash; Progress Overview</h2>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">49</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">35</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box blue"><div class="stat-num">36</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box grey"><div class="stat-num">13</div><div class="stat-lbl">No Answer</div></div>
+    <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
+  </div>
 
-            <h3>By Enumerator</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of that enumerator's total calls</p>
-            <table>
-                <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr>
-                <td>Bwebwenteraoi Francisco</td>
-                <td class="num-c">31</td>
-                <td class="num-c complete">21</td>
-                <td class="num-c">22</td>
-                <td class="num-c">9</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">42.9%</td>
-            </tr><tr>
-                <td>Louisa Karianako</td>
-                <td class="num-c">14</td>
-                <td class="num-c complete">11</td>
-                <td class="num-c">11</td>
-                <td class="num-c">3</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">22.4%</td>
-            </tr><tr>
-                <td>Unknown</td>
-                <td class="num-c">4</td>
-                <td class="num-c complete">3</td>
-                <td class="num-c">3</td>
-                <td class="num-c">1</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">6.1%</td>
-            </tr></tbody>
-            </table>
-        </div>
-        <div class="tab-content hidden" id="content-Tonga">
-            <h2>🇹🇴 Tonga &mdash; Progress Overview</h2>
-            <div class="stats-row">
-                <div class="stat-box"><div class="stat-num">39</div><div class="stat-lbl">Total Calls</div></div>
-                <div class="stat-box green"><div class="stat-num">21</div><div class="stat-lbl">Completed</div></div>
-                <div class="stat-box blue"><div class="stat-num">27</div><div class="stat-lbl">Answered</div></div>
-                <div class="stat-box grey"><div class="stat-num">12</div><div class="stat-lbl">No Answer</div></div>
-                <div class="stat-box orange"><div class="stat-num">0</div><div class="stat-lbl">Refused</div></div>
-                <div class="stat-box yellow"><div class="stat-num">4</div><div class="stat-lbl">Callback</div></div>
-            </div>
+  <h3>By Province (ADM2)</h3>
+  <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Province</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Gilbert Islands</td>
+<td class="num-c">35</td>
+<td class="num-c complete">35</td>
+<td class="num-c">35</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">100.0%</td>
+</tr><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">14</td>
+<td class="num-c complete">0</td>
+<td class="num-c">1</td>
+<td class="num-c">13</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody>
+  </table>
 
-            <h3>By Province (ADM2) &amp; District (ADM3)</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of total calls within that row's group</p>
-            <table>
-                <thead><tr><th>Area</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Eua</td>
-                <td class="num-c">21</td>
-                <td class="num-c complete">21</td>
-                <td class="num-c">21</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">53.8%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Hihifo</td>
-                <td class="num-c">15</td>
-                <td class="num-c complete">15</td>
-                <td class="num-c">15</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">71.4%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Hahake</td>
-                <td class="num-c">6</td>
-                <td class="num-c complete">6</td>
-                <td class="num-c">6</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">28.6%</td>
-            </tr><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Unknown</td>
-                <td class="num-c">18</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">6</td>
-                <td class="num-c">12</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">4</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Unknown</td>
-                <td class="num-c">18</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">6</td>
-                <td class="num-c">12</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">4</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr></tbody>
-            </table>
+  <h3>By District (ADM3)</h3>
+  <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all districts add up to 100%</p>
+  <table class="adm3-header-table">
+    <thead><tr>
+  <th style="text-align:left">District</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+  </table>
+  <div class="adm3-province-block">
+<div class="adm3-province-header">Province: Gilbert Islands</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Nonouti</td>
+<td class="num-c">19</td>
+<td class="num-c complete">19</td>
+<td class="num-c">19</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">54.3%</td>
+</tr><tr class="adm3-row">
+<td class="area-name">Onotoa</td>
+<td class="num-c">10</td>
+<td class="num-c complete">10</td>
+<td class="num-c">10</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">28.6%</td>
+</tr><tr class="adm3-row">
+<td class="area-name">North Tabiteuea</td>
+<td class="num-c">4</td>
+<td class="num-c complete">4</td>
+<td class="num-c">4</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">11.4%</td>
+</tr><tr class="adm3-row">
+<td class="area-name">South Tabiteuea</td>
+<td class="num-c">2</td>
+<td class="num-c complete">2</td>
+<td class="num-c">2</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">5.7%</td>
+</tr></tbody></table>
+</div><div class="adm3-province-block">
+<div class="adm3-province-header">Province: Unknown</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Unknown</td>
+<td class="num-c">14</td>
+<td class="num-c complete">0</td>
+<td class="num-c">1</td>
+<td class="num-c">13</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody></table>
+</div>
 
-            <h3>By Enumerator</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of that enumerator's total calls</p>
-            <table>
-                <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr>
-                <td>Halatono Fakaosi</td>
-                <td class="num-c">38</td>
-                <td class="num-c complete">20</td>
-                <td class="num-c">26</td>
-                <td class="num-c">12</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">4</td>
-                <td class="num-c pct-val">51.3%</td>
-            </tr><tr>
-                <td>Unknown</td>
-                <td class="num-c">1</td>
-                <td class="num-c complete">1</td>
-                <td class="num-c">1</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">2.6%</td>
-            </tr></tbody>
-            </table>
-        </div>
-        <div class="tab-content hidden" id="content-Solomon">
-            <h2>🇸🇧 Solomon Islands &mdash; Progress Overview</h2>
-            <div class="stats-row">
-                <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Total Calls</div></div>
-                <div class="stat-box green"><div class="stat-num">0</div><div class="stat-lbl">Completed</div></div>
-                <div class="stat-box blue"><div class="stat-num">3</div><div class="stat-lbl">Answered</div></div>
-                <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
-                <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
-                <div class="stat-box yellow"><div class="stat-num">1</div><div class="stat-lbl">Callback</div></div>
-            </div>
+  <h3>By Enumerator</h3>
+  <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Enumerator</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Bwebwenteraoi Francisco</td>
+<td class="num-c">31</td>
+<td class="num-c complete">21</td>
+<td class="num-c">22</td>
+<td class="num-c">9</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">42.9%</td>
+</tr><tr>
+<td class="area-name">Louisa Karianako</td>
+<td class="num-c">14</td>
+<td class="num-c complete">11</td>
+<td class="num-c">11</td>
+<td class="num-c">3</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">22.4%</td>
+</tr><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">4</td>
+<td class="num-c complete">3</td>
+<td class="num-c">3</td>
+<td class="num-c">1</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">6.1%</td>
+</tr></tbody>
+  </table>
+</div>
+<div class="tab-content hidden" id="content-Tonga">
+  <h2>🇹🇴 Tonga &mdash; Progress Overview</h2>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">40</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">22</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box blue"><div class="stat-num">28</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box grey"><div class="stat-num">12</div><div class="stat-lbl">No Answer</div></div>
+    <div class="stat-box orange"><div class="stat-num">0</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box yellow"><div class="stat-num">4</div><div class="stat-lbl">Callback</div></div>
+  </div>
 
-            <h3>By Province (ADM2) &amp; District (ADM3)</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of total calls within that row's group</p>
-            <table>
-                <thead><tr><th>Area</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr class="adm2-row">
-                <td class="area-label"><span class="adm2-badge">Province</span> Unknown</td>
-                <td class="num-c">3</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">3</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">1</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr><tr class="adm3-row">
-                <td class="area-label"><span class="adm3-indent">↳</span> Unknown</td>
-                <td class="num-c">3</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">3</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">1</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr></tbody>
-            </table>
+  <h3>By Province (ADM2)</h3>
+  <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Province</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Eua</td>
+<td class="num-c">22</td>
+<td class="num-c complete">22</td>
+<td class="num-c">22</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">100.0%</td>
+</tr><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">18</td>
+<td class="num-c complete">0</td>
+<td class="num-c">6</td>
+<td class="num-c">12</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">4</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody>
+  </table>
 
-            <h3>By Enumerator</h3>
-            <p class="table-note">% of Calls = completed calls as a percentage of that enumerator's total calls</p>
-            <table>
-                <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
-                    <th class="th-c">Completed</th>
-                    <th class="th-c">Answered</th>
-                    <th class="th-c">No Answer</th>
-                    <th class="th-c">Refused</th>
-                    <th class="th-c">Callback</th>
-                    <th class="th-c">% of Calls</th></tr></thead>
-                <tbody><tr>
-                <td>Unknown</td>
-                <td class="num-c">2</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">2</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">1</td>
-                <td class="num-c callback">0</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr><tr>
-                <td>Adi Tawakedau</td>
-                <td class="num-c">1</td>
-                <td class="num-c complete">0</td>
-                <td class="num-c">1</td>
-                <td class="num-c">0</td>
-                <td class="num-c refused">0</td>
-                <td class="num-c callback">1</td>
-                <td class="num-c pct-val">0.0%</td>
-            </tr></tbody>
-            </table>
-        </div>
+  <h3>By District (ADM3)</h3>
+  <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all districts add up to 100%</p>
+  <table class="adm3-header-table">
+    <thead><tr>
+  <th style="text-align:left">District</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+  </table>
+  <div class="adm3-province-block">
+<div class="adm3-province-header">Province: Eua</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Hihifo</td>
+<td class="num-c">16</td>
+<td class="num-c complete">16</td>
+<td class="num-c">16</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">72.7%</td>
+</tr><tr class="adm3-row">
+<td class="area-name">Hahake</td>
+<td class="num-c">6</td>
+<td class="num-c complete">6</td>
+<td class="num-c">6</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">27.3%</td>
+</tr></tbody></table>
+</div><div class="adm3-province-block">
+<div class="adm3-province-header">Province: Unknown</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Unknown</td>
+<td class="num-c">18</td>
+<td class="num-c complete">0</td>
+<td class="num-c">6</td>
+<td class="num-c">12</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">4</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody></table>
+</div>
 
+  <h3>By Enumerator</h3>
+  <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Enumerator</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Halatono Fakaosi</td>
+<td class="num-c">39</td>
+<td class="num-c complete">21</td>
+<td class="num-c">27</td>
+<td class="num-c">12</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">4</td>
+<td class="num-c pct-val">52.5%</td>
+</tr><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">1</td>
+<td class="num-c complete">1</td>
+<td class="num-c">1</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">2.5%</td>
+</tr></tbody>
+  </table>
+</div>
+<div class="tab-content hidden" id="content-Solomon">
+  <h2>🇸🇧 Solomon Islands &mdash; Progress Overview</h2>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">0</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box blue"><div class="stat-num">3</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
+    <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box yellow"><div class="stat-num">1</div><div class="stat-lbl">Callback</div></div>
+  </div>
+
+  <h3>By Province (ADM2)</h3>
+  <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Province</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">3</td>
+<td class="num-c complete">0</td>
+<td class="num-c">3</td>
+<td class="num-c">0</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">1</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody>
+  </table>
+
+  <h3>By District (ADM3)</h3>
+  <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all districts add up to 100%</p>
+  <table class="adm3-header-table">
+    <thead><tr>
+  <th style="text-align:left">District</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+  </table>
+  <div class="adm3-province-block">
+<div class="adm3-province-header">Province: Unknown</div>
+<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+<td class="area-name">Unknown</td>
+<td class="num-c">3</td>
+<td class="num-c complete">0</td>
+<td class="num-c">3</td>
+<td class="num-c">0</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">1</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody></table>
+</div>
+
+  <h3>By Enumerator</h3>
+  <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
+  <table>
+    <thead><tr>
+  <th style="text-align:left">Enumerator</th>
+  <th class="th-c">Total Calls</th>
+  <th class="th-c">Completed</th>
+  <th class="th-c">Answered</th>
+  <th class="th-c">No Answer</th>
+  <th class="th-c">Refused</th>
+  <th class="th-c">Callback</th>
+  <th class="th-c">% of Calls</th>
+</tr></thead>
+    <tbody><tr>
+<td class="area-name">Unknown</td>
+<td class="num-c">2</td>
+<td class="num-c complete">0</td>
+<td class="num-c">2</td>
+<td class="num-c">0</td>
+<td class="num-c refused">1</td>
+<td class="num-c callback">0</td>
+<td class="num-c pct-val">0.0%</td>
+</tr><tr>
+<td class="area-name">Adi Tawakedau</td>
+<td class="num-c">1</td>
+<td class="num-c complete">0</td>
+<td class="num-c">1</td>
+<td class="num-c">0</td>
+<td class="num-c refused">0</td>
+<td class="num-c callback">1</td>
+<td class="num-c pct-val">0.0%</td>
+</tr></tbody>
+  </table>
+</div>
 <footer>Dashboard updated manually · Raw survey data is not published · WFP JP RWEE 2026 Pacific</footer>
-
 <script>
 function showTab(country) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -643,7 +673,6 @@ function showTab(country) {
   document.getElementById('content-' + country)?.classList.remove('hidden');
   document.getElementById('tab-' + country)?.classList.add('active');
 }
-
 function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.getAttribute('data-theme') === 'dark';
