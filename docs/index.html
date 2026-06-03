@@ -91,12 +91,7 @@
   .pct-val{ color:var(--primary); font-weight:700; }
   .empty{ text-align:center; color:var(--subtext); font-style:italic; padding:18px; }
   .empty-msg{ text-align:center; color:var(--subtext); font-style:italic; padding:18px; font-size:.84rem; }
-  .adm3-header-table{ border-radius:var(--radius) var(--radius) 0 0; margin-bottom:0; box-shadow:none; border-bottom:none; }
-  .adm3-header-table thead th{ border-bottom:none; }
-  .adm3-block{ border:1.5px solid var(--adm3-block-border); border-top:none; overflow:hidden; }
-  .adm3-block:last-child{ border-radius:0 0 var(--radius) var(--radius); margin-bottom:6px; }
-  .adm3-province-header{ background:var(--adm3-header-bg); padding:5px 12px; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--primary); border-bottom:1px solid var(--adm3-block-border); }
-  .adm3-inner-table{ width:100%; border-collapse:collapse; font-size:.84rem; background:var(--adm3-row-bg); margin:0; box-shadow:none; border-radius:0; table-layout:fixed; }
+  .prov-label-row td{ background:var(--adm3-header-bg); color:var(--subtext); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; padding:4px 8px; border-bottom:1px solid var(--border); }
   .adm3-row td{ background:var(--adm3-row-bg); color:var(--adm3-row-text); border-bottom:1px solid var(--border); padding:8px 8px; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .adm3-row td:first-child{ text-align:left; font-weight:500; width:22%; }
   .adm3-row.unknown-row td{ color:var(--unknown-text); }
@@ -110,7 +105,7 @@
 <header>
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
-    <div class="meta">Last updated: 2026-06-03 23:16 UTC &nbsp;·&nbsp; 142 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-03 23:27 UTC &nbsp;·&nbsp; 142 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span class="toggle-icon">☀️</span>
@@ -207,7 +202,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table class="adm3-header-table">
+  <table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -215,10 +210,7 @@
     <th class="th-c">Refused</th>
     <th class="th-c">Callback</th>
     <th class="th-c">% of Calls</th></tr></thead>
-  </table>
-  <div class="adm3-block">
-<div class="adm3-prov-header">Province: Ba</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+    <tbody><tr class="prov-label-row"><td colspan="8">Ba</td></tr><tr class="adm3-row">
 <td class="area-name">Magodro</td>
 <td class="num-c">19</td>
 <td class="num-c complete">19</td>
@@ -227,10 +219,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">95.0%</td>
-</tr></tbody></table>
-</div><div class="adm3-block">
-<div class="adm3-prov-header" style="color:var(--subtext)">Province: Unknown</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row unknown-row">
+</tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">6</td>
 <td class="num-c complete">1</td>
@@ -239,8 +228,8 @@
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
-</tr></tbody></table>
-</div>
+</tr></tbody>
+  </table>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -317,7 +306,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table class="adm3-header-table">
+  <table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -325,10 +314,7 @@
     <th class="th-c">Refused</th>
     <th class="th-c">Callback</th>
     <th class="th-c">% of Calls</th></tr></thead>
-  </table>
-  <div class="adm3-block">
-<div class="adm3-prov-header">Province: Gilbert Islands</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+    <tbody><tr class="prov-label-row"><td colspan="8">Gilbert Islands</td></tr><tr class="adm3-row">
 <td class="area-name">Nonouti</td>
 <td class="num-c">19</td>
 <td class="num-c complete">19</td>
@@ -364,10 +350,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">11.9%</td>
-</tr></tbody></table>
-</div><div class="adm3-block">
-<div class="adm3-prov-header" style="color:var(--subtext)">Province: Unknown</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row unknown-row">
+</tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">14</td>
 <td class="num-c complete">0</td>
@@ -376,8 +359,8 @@
 <td class="num-c refused">1</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
-</tr></tbody></table>
-</div>
+</tr></tbody>
+  </table>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -463,7 +446,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table class="adm3-header-table">
+  <table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -471,10 +454,7 @@
     <th class="th-c">Refused</th>
     <th class="th-c">Callback</th>
     <th class="th-c">% of Calls</th></tr></thead>
-  </table>
-  <div class="adm3-block">
-<div class="adm3-prov-header">Province: Eua</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row">
+    <tbody><tr class="prov-label-row"><td colspan="8">Eua</td></tr><tr class="adm3-row">
 <td class="area-name">Hihifo</td>
 <td class="num-c">20</td>
 <td class="num-c complete">20</td>
@@ -492,10 +472,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">33.3%</td>
-</tr></tbody></table>
-</div><div class="adm3-block">
-<div class="adm3-prov-header" style="color:var(--subtext)">Province: Unknown</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row unknown-row">
+</tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">28</td>
 <td class="num-c complete">0</td>
@@ -504,8 +481,8 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">5</td>
 <td class="num-c pct-val">&mdash;</td>
-</tr></tbody></table>
-</div>
+</tr></tbody>
+  </table>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -573,7 +550,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table class="adm3-header-table">
+  <table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -581,10 +558,7 @@
     <th class="th-c">Refused</th>
     <th class="th-c">Callback</th>
     <th class="th-c">% of Calls</th></tr></thead>
-  </table>
-  <div class="adm3-block">
-<div class="adm3-prov-header" style="color:var(--subtext)">Province: Unknown</div>
-<table class="adm3-inner-table"><tbody><tr class="adm3-row unknown-row">
+    <tbody><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">3</td>
 <td class="num-c complete">0</td>
@@ -593,8 +567,8 @@
 <td class="num-c refused">1</td>
 <td class="num-c callback">1</td>
 <td class="num-c pct-val">&mdash;</td>
-</tr></tbody></table>
-</div>
+</tr></tbody>
+  </table>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
