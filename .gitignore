@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Local secrets — never commit your token
+.env.local
+secrets.txt
+
+# OS
+.DS_Store
+Thumbs.db
