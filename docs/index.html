@@ -6,98 +6,114 @@
 <title>JP-RWEE Data Collection Calls Monitoring Dashboard</title>
 <style>
   :root[data-theme="dark"] {
-    --bg:#0f1923; --bg2:#1a2a3a; --card:#1e3a5f; --card2:#162d47;
-    --primary:#4a9edd; --green:#2ecc71; --blue:#4a9edd;
-    --orange:#e67e22; --yellow:#f1c40f; --grey:#95a5a6;
-    --text:#ecf0f1; --subtext:#a0b4c8; --border:#2d4a6a;
-    --thead:#162d47; --row-hover:#1e3a5f;
-    --adm3-block-border:#2d5f8a; --adm3-header-bg:#1a3352;
-    --adm3-row-bg:#0f2035; --adm3-row-text:#b0c8e0;
-    --unknown-text:#7a8fa0;
-    --radius:10px; --shadow:0 2px 12px rgba(0,0,0,.4);
+    --bg:#0e1117; --card:#161c24; --card2:#1a2430; --card3:#131920;
+    --primary:#6a9fc8; --green:#4ac88a; --orange:#c87840; --yellow:#a89030; --grey:#4a6070;
+    --text:#c8d8e8; --text2:#a0b8c8; --text3:#7a9ab0; --subtext:#4a6070;
+    --border:#1e2a38; --border2:#1a2430;
+    --prov-bg:#1a2430; --prov-text:#2a5070;
+    --adm3-bg:#131920; --adm3-text:#6a8a9a;
+    --unknown-text:#2a4a5a;
+    --overall-accent:#6a9fc8;
+    --radius:6px;
   }
   :root[data-theme="light"] {
-    --bg:#f4f6fb; --bg2:#ffffff; --card:#ffffff; --card2:#eef2fa;
-    --primary:#0057a8; --green:#1a9e5f; --blue:#0d6efd;
-    --orange:#e07000; --yellow:#b8860b; --grey:#6c757d;
-    --text:#1a2233; --subtext:#5a6474; --border:#dde3ef;
-    --thead:#eef2fa; --row-hover:#f7f9ff;
-    --adm3-block-border:#0057a8; --adm3-header-bg:#dde8f5;
-    --adm3-row-bg:#f7f9ff; --adm3-row-text:#1a2233;
-    --unknown-text:#9aabb8;
-    --radius:10px; --shadow:0 2px 8px rgba(0,0,0,.08);
+    --bg:#f0f4f8; --card:#ffffff; --card2:#f0f4f8; --card3:#e8eef4;
+    --primary:#185fa5; --green:#1a9e5f; --orange:#c06010; --yellow:#906010; --grey:#6c757d;
+    --text:#1a2433; --text2:#2a3a4a; --text3:#4a5a6a; --subtext:#6a7a8a;
+    --border:#d0dae4; --border2:#e0eaf4;
+    --prov-bg:#e8eef4; --prov-text:#4a6a8a;
+    --adm3-bg:#f4f8fc; --adm3-text:#5a7a8a;
+    --unknown-text:#9aacb8;
+    --overall-accent:#185fa5;
+    --radius:6px;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
   body{ font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; transition:background .3s,color .3s; }
-  header{ background:var(--card); border-bottom:3px solid var(--primary); padding:16px 28px 14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; box-shadow:var(--shadow); }
-  .header-left h1{ font-size:1.5rem; font-weight:700; color:var(--primary); line-height:1.2; }
-  .header-left p{ font-size:.83rem; color:var(--subtext); margin-top:4px; }
-  .meta{ font-size:.75rem; color:var(--subtext); margin-top:4px; }
-  .theme-toggle{ display:flex; align-items:center; gap:8px; cursor:pointer; background:var(--bg2); border:1.5px solid var(--border); border-radius:20px; padding:6px 14px; font-size:.82rem; color:var(--subtext); transition:all .2s; user-select:none; white-space:nowrap; }
-  .theme-toggle:hover{ border-color:var(--primary); color:var(--primary); }
-  .overall{ background:var(--card); padding:16px 28px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:24px; flex-wrap:wrap; box-shadow:var(--shadow); }
-  .overall-label{ font-size:.85rem; color:var(--subtext); margin-bottom:3px; }
-  .overall-num{ font-size:1.5rem; font-weight:700; color:var(--primary); }
-  .overall-sub{ font-size:.75rem; color:var(--subtext); margin-top:2px; }
-  .overall-bar-wrap{ flex:1; min-width:200px; background:var(--border); border-radius:6px; height:12px; }
-  .overall-bar{ background:var(--primary); height:12px; border-radius:6px; transition:width .6s; }
-  .overall-pct{ font-size:1.1rem; font-weight:700; color:var(--primary); min-width:40px; text-align:right; }
-  .country-cards{ display:flex; gap:14px; padding:18px 28px; flex-wrap:wrap; }
-  .country-card{ background:var(--card); border:1.5px solid var(--border); border-radius:var(--radius); padding:14px 16px; flex:1; min-width:170px; cursor:pointer; transition:box-shadow .2s,border-color .2s; box-shadow:var(--shadow); }
-  .country-card:hover{ box-shadow:0 6px 18px rgba(74,158,221,.25); border-color:var(--primary); }
-  .card-flag{ font-size:1.7rem; }
-  .card-label{ font-size:.8rem; color:var(--subtext); margin-top:2px; }
-  .card-stat{ font-size:1.6rem; font-weight:700; color:var(--green); margin-top:3px; }
-  .card-target{ font-size:.95rem; color:var(--subtext); font-weight:400; }
-  .progress-bar-wrap{ background:var(--border); border-radius:4px; height:7px; margin:7px 0 3px; }
-  .progress-bar{ background:var(--primary); height:7px; border-radius:4px; }
-  .card-pct{ font-size:.76rem; color:var(--subtext); }
-  .card-sub{ font-size:.73rem; color:var(--subtext); margin-top:5px; line-height:1.5; }
-  .tabs{ padding:0 28px; border-bottom:2px solid var(--border); background:var(--card); display:flex; flex-wrap:wrap; gap:2px; }
-  .tab-btn{ padding:10px 16px; font-size:.86rem; border:none; background:transparent; cursor:pointer; border-bottom:3px solid transparent; color:var(--subtext); font-weight:500; margin-bottom:-2px; transition:all .15s; }
+
+  /* HEADER */
+  header{ background:var(--card); border-bottom:1px solid var(--border); padding:14px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  .header-left h1{ font-size:1.25rem; font-weight:600; color:var(--text); letter-spacing:.2px; }
+  .meta{ font-size:.75rem; color:var(--subtext); margin-top:3px; }
+  .theme-toggle{ display:flex; align-items:center; gap:8px; cursor:pointer; background:var(--card2); border:1px solid var(--border); border-radius:16px; padding:5px 14px; font-size:.8rem; color:var(--subtext); user-select:none; transition:all .2s; white-space:nowrap; }
+  .theme-toggle:hover{ color:var(--primary); border-color:var(--primary); }
+
+  /* OVERALL PROGRESS — standout */
+  .overall{ background:var(--card); border-top:3px solid var(--overall-accent); border-bottom:1px solid var(--border); padding:18px 28px; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+  .overall-left .overall-label{ font-size:.75rem; color:var(--subtext); text-transform:uppercase; letter-spacing:.8px; font-weight:600; margin-bottom:6px; }
+  .overall-num{ font-size:2rem; font-weight:700; color:var(--text); line-height:1; }
+  .overall-target{ font-size:.9rem; color:var(--subtext); font-weight:400; }
+  .overall-sub{ font-size:.72rem; color:var(--subtext); margin-top:5px; }
+  .overall-right{ flex:1; min-width:200px; }
+  .overall-bar-wrap{ background:var(--border); border-radius:3px; height:8px; }
+  .overall-bar{ background:var(--primary); height:8px; border-radius:3px; transition:width .6s; }
+  .overall-pct{ font-size:.85rem; color:var(--primary); font-weight:600; text-align:right; margin-top:5px; }
+
+  /* COUNTRY CARDS */
+  .country-cards{ display:flex; gap:12px; padding:16px 28px; flex-wrap:wrap; background:var(--bg); }
+  .country-card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; flex:1; min-width:160px; cursor:pointer; transition:border-color .2s; }
+  .country-card:hover{ border-color:var(--primary); }
+  .card-flag{ font-size:1.6rem; }
+  .card-label{ font-size:.78rem; color:var(--subtext); margin-top:2px; }
+  .card-stat{ font-size:1.5rem; font-weight:700; color:var(--green); margin-top:3px; }
+  .card-target{ font-size:.88rem; color:var(--subtext); font-weight:400; }
+  .progress-bar-wrap{ background:var(--border); border-radius:3px; height:5px; margin:7px 0 3px; }
+  .progress-bar{ background:var(--primary); height:5px; border-radius:3px; }
+  .card-pct{ font-size:.74rem; color:var(--subtext); }
+  .card-sub{ font-size:.72rem; color:var(--subtext); margin-top:4px; line-height:1.5; }
+
+  /* TABS */
+  .tabs{ padding:0 28px; border-bottom:1px solid var(--border); background:var(--card); display:flex; flex-wrap:wrap; gap:2px; }
+  .tab-btn{ padding:10px 16px; font-size:.84rem; border:none; background:transparent; cursor:pointer; border-bottom:2px solid transparent; color:var(--subtext); font-weight:500; margin-bottom:-1px; transition:all .15s; }
   .tab-btn.active,.tab-btn:hover{ color:var(--primary); border-bottom-color:var(--primary); }
-  .tab-content{ padding:22px 28px; }
+
+  /* TAB CONTENT */
+  .tab-content{ padding:20px 28px; }
   .tab-content.hidden{ display:none; }
-  .tab-content h2{ font-size:1.1rem; color:var(--primary); margin-bottom:14px; font-weight:700; }
-  .tab-content h3{ font-size:.88rem; color:var(--subtext); margin:22px 0 4px; text-transform:uppercase; letter-spacing:.6px; font-weight:700; }
-  .table-note{ font-size:.75rem; color:var(--subtext); margin-bottom:8px; font-style:italic; }
-  .stats-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
-  .stat-box{ background:var(--card2); border:1.5px solid var(--border); border-radius:var(--radius); padding:12px 14px; text-align:center; min-width:85px; flex:1; box-shadow:var(--shadow); }
-  .stat-box.green{ border-color:var(--green); }
-  .stat-box.blue{ border-color:var(--blue); }
-  .stat-box.orange{ border-color:var(--orange); }
-  .stat-box.yellow{ border-color:var(--yellow); }
-  .stat-box.grey{ border-color:var(--grey); }
-  .stat-num{ font-size:1.4rem; font-weight:700; color:var(--primary); }
+  .tab-content h2{ font-size:1rem; color:var(--text); margin-bottom:14px; font-weight:600; }
+  .tab-content h3{ font-size:.78rem; color:var(--subtext); margin:20px 0 3px; text-transform:uppercase; letter-spacing:.7px; font-weight:600; }
+  .table-note{ font-size:.72rem; color:var(--subtext); margin-bottom:8px; font-style:italic; }
+
+  /* STAT BOXES */
+  .stats-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:var(--border); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:20px; }
+  .stat-box{ background:var(--card); padding:12px 8px; text-align:center; }
+  .stat-num{ font-size:1.4rem; font-weight:600; color:var(--text); }
   .stat-box.green .stat-num{ color:var(--green); }
-  .stat-box.blue .stat-num{ color:var(--blue); }
   .stat-box.orange .stat-num{ color:var(--orange); }
   .stat-box.yellow .stat-num{ color:var(--yellow); }
   .stat-box.grey .stat-num{ color:var(--grey); }
-  .stat-lbl{ font-size:.68rem; color:var(--subtext); margin-top:2px; text-transform:uppercase; letter-spacing:.4px; }
-  table{ width:100%; border-collapse:collapse; background:var(--card2); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); font-size:.84rem; margin-bottom:6px; table-layout:fixed; }
-  thead{ background:var(--thead); }
-  th{ padding:9px 8px; text-align:left; font-weight:700; color:var(--subtext); font-size:.74rem; text-transform:uppercase; letter-spacing:.5px; border-bottom:1.5px solid var(--border); }
-  th.th-c{ text-align:center; }
-  td{ padding:8px 8px; border-bottom:1px solid var(--border); color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .stat-lbl{ font-size:.68rem; color:var(--subtext); margin-top:3px; text-transform:uppercase; letter-spacing:.5px; }
+
+  /* TABLES */
+  table{ width:100%; border-collapse:collapse; background:var(--card); border-radius:var(--radius); overflow:hidden; font-size:.82rem; margin-bottom:6px; table-layout:fixed; border:1px solid var(--border); }
+  thead{ background:var(--card2); }
+  th{ padding:8px 8px; text-align:center; font-weight:600; color:var(--subtext); font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; border-bottom:1px solid var(--border); }
+  th:first-child{ text-align:left; }
+  td{ padding:7px 8px; border-bottom:1px solid var(--border2); text-align:center; color:var(--text3); font-weight:400; }
+  td:first-child{ text-align:left; color:var(--text2); font-weight:400; }
   tr:last-child td{ border-bottom:none; }
-  tr:not(.adm3-row):not(.unknown-row):hover td{ background:var(--row-hover); }
-  .unknown-row td{ color:var(--unknown-text); }
-  .area-name{ text-align:left; font-weight:600; width:22%; }
+  tr:not(.prov-label-row):hover td{ background:var(--card2); }
+  .area-name{ width:22%; }
   .num-c{ text-align:center; font-variant-numeric:tabular-nums; }
-  .complete{ color:var(--green); font-weight:700; }
+  .complete{ color:var(--green); font-weight:500; }
   .refused{ color:var(--orange); }
   .callback{ color:var(--yellow); }
-  .pct-val{ color:var(--primary); font-weight:700; }
-  .empty{ text-align:center; color:var(--subtext); font-style:italic; padding:18px; }
-  .empty-msg{ text-align:center; color:var(--subtext); font-style:italic; padding:18px; font-size:.84rem; }
-  .prov-label-row td{ background:var(--adm3-header-bg); color:var(--subtext); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; padding:4px 8px; border-bottom:1px solid var(--border); }
-  .adm3-row td{ background:var(--adm3-row-bg); color:var(--adm3-row-text); border-bottom:1px solid var(--border); padding:8px 8px; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .adm3-row td:first-child{ text-align:left; font-weight:500; width:22%; }
-  .adm3-row.unknown-row td{ color:var(--unknown-text); }
+  .pct-val{ color:var(--primary); font-weight:500; }
+  .empty{ text-align:center; color:var(--subtext); font-style:italic; padding:16px; }
+
+  /* PROVINCE LABEL ROWS */
+  .prov-label-row td{ background:var(--prov-bg); color:var(--prov-text); font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px; padding:3px 8px; border-bottom:1px solid var(--border); }
+
+  /* ADM3 ROWS */
+  .adm3-row td{ background:var(--adm3-bg); color:var(--adm3-text); border-bottom:1px solid var(--border2); padding:7px 8px; text-align:center; }
+  .adm3-row td:first-child{ text-align:left; font-weight:400; width:22%; }
   .adm3-row:last-child td{ border-bottom:none; }
-  .adm3-row:hover td{ filter:brightness(1.08); }
-  footer{ text-align:center; padding:14px; font-size:.75rem; color:var(--subtext); border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
+  .adm3-row:hover td{ filter:brightness(1.1); }
+  .adm3-row.unknown-row td{ color:var(--unknown-text); }
+
+  /* UNKNOWN ROWS */
+  .unknown-row td{ color:var(--unknown-text); }
+
+  footer{ text-align:center; padding:14px; font-size:.73rem; color:var(--subtext); border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
   @media(max-width:640px){ .country-cards,.tab-content{ padding:12px 14px; } .tabs,header,.overall{ padding:12px 14px; } }
 </style>
 </head>
@@ -105,48 +121,50 @@
 <header>
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
-    <div class="meta">Last updated: 2026-06-04 12:02 Fiji Time &nbsp;·&nbsp; 148 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-04 13:43 Fiji Time &nbsp;·&nbsp; 157 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-    <span class="toggle-icon">☀️</span>
+    <span class="toggle-icon">&#9728;&#65039;</span>
     <span id="themeLbl">Light Mode</span>
   </div>
 </header>
+
 <div class="overall">
-  <div>
-    <div class="overall-label">Overall Progress (all 4 countries)</div>
-    <div class="overall-num">95
-      <span style="font-size:.95rem;font-weight:400;color:var(--subtext)">/ 1600 target</span>
-    </div>
+  <div class="overall-left">
+    <div class="overall-label">Overall Progress &mdash; all 4 countries</div>
+    <div><span class="overall-num">102</span> <span class="overall-target">/ 1600 target</span></div>
     <div class="overall-sub">Completed = answered + consented + confirmed adult</div>
   </div>
-  <div class="overall-bar-wrap"><div class="overall-bar" style="width:6%"></div></div>
-  <div class="overall-pct">6%</div>
+  <div class="overall-right">
+    <div class="overall-bar-wrap"><div class="overall-bar" style="width:6%"></div></div>
+    <div class="overall-pct">6%</div>
+  </div>
 </div>
+
 <div class="country-cards">
         <div class="country-card" onclick="showTab('Fiji')">
             <div class="card-flag">🇫🇯</div>
             <div class="card-label">Fiji</div>
-            <div class="card-stat">21<span class="card-target">/400</span></div>
-            <div class="progress-bar-wrap"><div class="progress-bar" style="width:5%"></div></div>
-            <div class="card-pct">5% complete</div>
-            <div class="card-sub">✅ 26 answered &nbsp;·&nbsp; 📵 0 no answer</div>
+            <div class="card-stat">23<span class="card-target">/400</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:6%"></div></div>
+            <div class="card-pct">6% complete</div>
+            <div class="card-sub">✅ 28 answered &nbsp;·&nbsp; 📵 0 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Kiribati')">
             <div class="card-flag">🇰🇮</div>
             <div class="card-label">Kiribati</div>
-            <div class="card-stat">43<span class="card-target">/400</span></div>
+            <div class="card-stat">45<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:11%"></div></div>
             <div class="card-pct">11% complete</div>
-            <div class="card-sub">✅ 44 answered &nbsp;·&nbsp; 📵 13 no answer</div>
+            <div class="card-sub">✅ 47 answered &nbsp;·&nbsp; 📵 13 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Tonga')">
             <div class="card-flag">🇹🇴</div>
             <div class="card-label">Tonga</div>
-            <div class="card-stat">31<span class="card-target">/400</span></div>
+            <div class="card-stat">34<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:8%"></div></div>
             <div class="card-pct">8% complete</div>
-            <div class="card-sub">✅ 39 answered &nbsp;·&nbsp; 📵 23 no answer</div>
+            <div class="card-sub">✅ 42 answered &nbsp;·&nbsp; 📵 24 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Solomon')">
             <div class="card-flag">🇸🇧</div>
@@ -161,9 +179,9 @@
 <div class="tab-content " id="content-Fiji">
   <h2>🇫🇯 Fiji &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">26</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">21</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box blue"><div class="stat-num">26</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">28</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">23</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">28</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
     <div class="stat-box orange"><div class="stat-num">5</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
@@ -181,13 +199,13 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Ba</td>
-<td class="num-c">20</td>
-<td class="num-c complete">20</td>
-<td class="num-c">20</td>
+<td class="num-c">22</td>
+<td class="num-c complete">22</td>
+<td class="num-c">22</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">95.2%</td>
+<td class="num-c pct-val">95.7%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">6</td>
@@ -196,7 +214,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.8%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr></tbody>
   </table>
 
@@ -212,13 +230,13 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr class="prov-label-row"><td colspan="8">Ba</td></tr><tr class="adm3-row">
 <td class="area-name">Magodro</td>
-<td class="num-c">20</td>
-<td class="num-c complete">20</td>
-<td class="num-c">20</td>
+<td class="num-c">22</td>
+<td class="num-c complete">22</td>
+<td class="num-c">22</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">95.2%</td>
+<td class="num-c pct-val">95.7%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">6</td>
@@ -227,7 +245,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.8%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr></tbody>
   </table>
 
@@ -249,27 +267,27 @@
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">85.7%</td>
+<td class="num-c pct-val">78.3%</td>
 </tr><tr>
 <td class="area-name">Elina Seninunukula</td>
-<td class="num-c">3</td>
-<td class="num-c complete">3</td>
-<td class="num-c">3</td>
+<td class="num-c">5</td>
+<td class="num-c complete">5</td>
+<td class="num-c">5</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">14.3%</td>
+<td class="num-c pct-val">21.7%</td>
 </tr></tbody>
   </table>
 </div>
 <div class="tab-content hidden" id="content-Kiribati">
   <h2>🇰🇮 Kiribati &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">57</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">43</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box blue"><div class="stat-num">44</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">60</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">45</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">47</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">13</div><div class="stat-lbl">No Answer</div></div>
-    <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box orange"><div class="stat-num">2</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
   </div>
 
@@ -285,20 +303,20 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Gilbert Islands</td>
-<td class="num-c">43</td>
-<td class="num-c complete">43</td>
-<td class="num-c">43</td>
+<td class="num-c">45</td>
+<td class="num-c complete">45</td>
+<td class="num-c">45</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">100.0%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">14</td>
+<td class="num-c">15</td>
 <td class="num-c complete">0</td>
-<td class="num-c">1</td>
+<td class="num-c">2</td>
 <td class="num-c">13</td>
-<td class="num-c refused">1</td>
+<td class="num-c refused">2</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
@@ -322,7 +340,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">44.2%</td>
+<td class="num-c pct-val">42.2%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Onotoa</td>
 <td class="num-c">10</td>
@@ -331,32 +349,32 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">23.3%</td>
+<td class="num-c pct-val">22.2%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">North Tabiteuea</td>
-<td class="num-c">8</td>
-<td class="num-c complete">8</td>
-<td class="num-c">8</td>
+<td class="num-c">9</td>
+<td class="num-c complete">9</td>
+<td class="num-c">9</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">18.6%</td>
+<td class="num-c pct-val">20.0%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">South Tabiteuea</td>
-<td class="num-c">6</td>
-<td class="num-c complete">6</td>
-<td class="num-c">6</td>
+<td class="num-c">7</td>
+<td class="num-c complete">7</td>
+<td class="num-c">7</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">14.0%</td>
+<td class="num-c pct-val">15.6%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">14</td>
+<td class="num-c">15</td>
 <td class="num-c complete">0</td>
-<td class="num-c">1</td>
+<td class="num-c">2</td>
 <td class="num-c">13</td>
-<td class="num-c refused">1</td>
+<td class="num-c refused">2</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
@@ -374,22 +392,22 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Bwebwenteraoi Francisco</td>
-<td class="num-c">35</td>
-<td class="num-c complete">25</td>
-<td class="num-c">26</td>
+<td class="num-c">37</td>
+<td class="num-c complete">26</td>
+<td class="num-c">28</td>
 <td class="num-c">9</td>
-<td class="num-c refused">1</td>
+<td class="num-c refused">2</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">58.1%</td>
+<td class="num-c pct-val">57.8%</td>
 </tr><tr>
 <td class="area-name">Louisa Karianako</td>
-<td class="num-c">18</td>
-<td class="num-c complete">15</td>
-<td class="num-c">15</td>
+<td class="num-c">19</td>
+<td class="num-c complete">16</td>
+<td class="num-c">16</td>
 <td class="num-c">3</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">34.9%</td>
+<td class="num-c pct-val">35.6%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">4</td>
@@ -398,17 +416,17 @@
 <td class="num-c">1</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">7.0%</td>
+<td class="num-c pct-val">6.7%</td>
 </tr></tbody>
   </table>
 </div>
 <div class="tab-content hidden" id="content-Tonga">
   <h2>🇹🇴 Tonga &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">62</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">31</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box blue"><div class="stat-num">39</div><div class="stat-lbl">Answered</div></div>
-    <div class="stat-box grey"><div class="stat-num">23</div><div class="stat-lbl">No Answer</div></div>
+    <div class="stat-box"><div class="stat-num">66</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">34</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">42</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box grey"><div class="stat-num">24</div><div class="stat-lbl">No Answer</div></div>
     <div class="stat-box orange"><div class="stat-num">0</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">5</div><div class="stat-lbl">Callback</div></div>
   </div>
@@ -425,19 +443,19 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Eua</td>
-<td class="num-c">31</td>
-<td class="num-c complete">31</td>
-<td class="num-c">31</td>
+<td class="num-c">34</td>
+<td class="num-c complete">34</td>
+<td class="num-c">34</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">100.0%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">31</td>
+<td class="num-c">32</td>
 <td class="num-c complete">0</td>
 <td class="num-c">8</td>
-<td class="num-c">23</td>
+<td class="num-c">24</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">5</td>
 <td class="num-c pct-val">&mdash;</td>
@@ -456,13 +474,13 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr class="prov-label-row"><td colspan="8">Eua</td></tr><tr class="adm3-row">
 <td class="area-name">Hihifo</td>
-<td class="num-c">21</td>
-<td class="num-c complete">21</td>
-<td class="num-c">21</td>
+<td class="num-c">24</td>
+<td class="num-c complete">24</td>
+<td class="num-c">24</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">67.7%</td>
+<td class="num-c pct-val">70.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Hahake</td>
 <td class="num-c">10</td>
@@ -471,13 +489,13 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">32.3%</td>
+<td class="num-c pct-val">29.4%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">31</td>
+<td class="num-c">32</td>
 <td class="num-c complete">0</td>
 <td class="num-c">8</td>
-<td class="num-c">23</td>
+<td class="num-c">24</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">5</td>
 <td class="num-c pct-val">&mdash;</td>
@@ -496,13 +514,13 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Halatono Fakaosi</td>
-<td class="num-c">61</td>
-<td class="num-c complete">30</td>
-<td class="num-c">38</td>
-<td class="num-c">23</td>
+<td class="num-c">65</td>
+<td class="num-c complete">33</td>
+<td class="num-c">41</td>
+<td class="num-c">24</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">5</td>
-<td class="num-c pct-val">96.8%</td>
+<td class="num-c pct-val">97.1%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">1</td>
@@ -511,7 +529,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.2%</td>
+<td class="num-c pct-val">2.9%</td>
 </tr></tbody>
   </table>
 </div>
@@ -520,7 +538,7 @@
   <div class="stats-row">
     <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Total Calls</div></div>
     <div class="stat-box green"><div class="stat-num">0</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box blue"><div class="stat-num">3</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
     <div class="stat-box orange"><div class="stat-num">1</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">1</div><div class="stat-lbl">Callback</div></div>
@@ -601,7 +619,8 @@
 </tr></tbody>
   </table>
 </div>
-<footer>Dashboard updated manually · Raw survey data is not published</footer>
+
+<footer>Dashboard updated manually &nbsp;&middot;&nbsp; Raw survey data is not published</footer>
 <script>
 function showTab(country){
   document.querySelectorAll('.tab-content').forEach(el=>el.classList.add('hidden'));
@@ -614,7 +633,7 @@ function toggleTheme(){
   const isDark=html.getAttribute('data-theme')==='dark';
   html.setAttribute('data-theme',isDark?'light':'dark');
   document.getElementById('themeLbl').textContent=isDark?'Dark Mode':'Light Mode';
-  document.querySelector('.toggle-icon').textContent=isDark?'🌙':'☀️';
+  document.querySelector('.toggle-icon').textContent=isDark?'🌙':'☀';
 }
 </script>
 </body>
