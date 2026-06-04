@@ -126,11 +126,14 @@
     .table-wrap::-webkit-scrollbar{ height:4px; }
     .table-wrap::-webkit-scrollbar-track{ background:#1a2430; border-radius:2px; }
     .table-wrap::-webkit-scrollbar-thumb{ background:#2a5070; border-radius:2px; }
-    .table-wrap table{ width:600px; min-width:600px; margin-bottom:0; table-layout:fixed; }
-    .table-wrap table th{ white-space:nowrap; font-size:.68rem; padding:7px 8px; }
-    .table-wrap table td{ padding:7px 8px; }
+    .table-wrap table{ width:650px; min-width:650px; margin-bottom:0; table-layout:fixed; }
+    .table-wrap table th{ white-space:nowrap; font-size:.72rem; padding:8px 10px; }
+    .table-wrap table td{ padding:7px 10px; }
+    .table-wrap .adm3-header-table{ border-radius:6px 6px 0 0; }
+    .table-wrap .adm3-block{ border-left:1px solid var(--adm3-block-border); border-right:1px solid var(--adm3-block-border); }
+    .table-wrap .adm3-block:last-child{ border-bottom:1px solid var(--adm3-block-border); border-radius:0 0 6px 6px; }
+    .table-wrap .adm3-inner-table{ width:650px; min-width:650px; }
     .table-note{ font-size:.7rem; }
-    .adm3-inner-table{ width:600px; min-width:600px; }
   }
 </style>
 </head>
@@ -139,7 +142,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-04 16:34 Fiji Time &nbsp;·&nbsp; 183 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-04 16:46 Fiji Time &nbsp;·&nbsp; 183 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
@@ -248,7 +251,8 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -293,11 +297,12 @@
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">3.2%</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -368,7 +373,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">3.2%</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -447,7 +452,8 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -501,11 +507,12 @@
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -693,7 +700,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">4.1%</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -790,7 +797,8 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -835,11 +843,12 @@
 <td class="num-c callback">6</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -919,7 +928,7 @@
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">2.6%</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
@@ -998,7 +1007,8 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -1025,11 +1035,12 @@
 <td class="num-c callback">1</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <p class="empty-msg">No village data yet</p>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><p class="empty-msg">No village data yet</p></div>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
