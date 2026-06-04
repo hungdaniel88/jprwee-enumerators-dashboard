@@ -115,7 +115,17 @@
   .unknown-row td{ color:var(--unknown-text); }
 
   footer{ text-align:center; padding:14px; font-size:.73rem; color:var(--subtext); border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
-  @media(max-width:640px){ .country-cards,.tab-content{ padding:12px 14px; } .tabs,header,.overall{ padding:12px 14px; } }
+  .scroll-hint{ display:none; font-size:.7rem; color:var(--subtext); text-align:right; margin-bottom:3px; font-style:italic; }
+  @media(max-width:640px){
+    .scroll-hint{ display:block; }
+    .country-cards,.tab-content{ padding:12px 14px; }
+    .tabs,header,.overall{ padding:12px 14px; }
+    .stats-row{ grid-template-columns:repeat(3,1fr); }
+    .tab-content h2{ font-size:.95rem; }
+    .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin-bottom:6px; }
+    .table-wrap table{ min-width:520px; margin-bottom:0; }
+    .table-note{ font-size:.7rem; }
+  }
 </style>
 </head>
 <body>
@@ -123,7 +133,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-04 16:10 Fiji Time &nbsp;·&nbsp; 180 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-04 16:28 Fiji Time &nbsp;·&nbsp; 182 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
@@ -134,12 +144,12 @@
 <div class="overall">
   <div class="overall-left">
     <div class="overall-label">Overall Progress &mdash; all 4 countries</div>
-    <div><span class="overall-num">119</span> <span class="overall-target">/ 1600 target</span></div>
+    <div><span class="overall-num">120</span> <span class="overall-target">/ 1600 target</span></div>
     <div class="overall-sub">Completed = answered + consented + confirmed adult</div>
   </div>
   <div class="overall-right">
-    <div class="overall-bar-wrap"><div class="overall-bar" style="width:7%"></div></div>
-    <div class="overall-pct">7%</div>
+    <div class="overall-bar-wrap"><div class="overall-bar" style="width:8%"></div></div>
+    <div class="overall-pct">8%</div>
   </div>
 </div>
 
@@ -147,10 +157,10 @@
         <div class="country-card" onclick="showTab('Fiji')">
             <div class="card-flag">&#x1F1EB;&#x1F1EF;</div>
             <div class="card-label">Fiji</div>
-            <div class="card-stat">30<span class="card-target">/400</span></div>
+            <div class="card-stat">31<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:8%"></div></div>
             <div class="card-pct">8% complete</div>
-            <div class="card-sub">&#10003; 36 answered &nbsp;·&nbsp; 📵 0 no answer</div>
+            <div class="card-sub">&#10003; 38 answered &nbsp;·&nbsp; 📵 0 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Kiribati')">
             <div class="card-flag">&#x1F1F0;&#x1F1EE;</div>
@@ -181,17 +191,18 @@
 <div class="tab-content " id="content-Fiji">
   <h2>&#x1F1EB;&#x1F1EF; Fiji &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">36</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">30</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box"><div class="stat-num">36</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">38</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">31</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">38</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
-    <div class="stat-box orange"><div class="stat-num">6</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box orange"><div class="stat-num">7</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
   </div>
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -207,27 +218,27 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">86.7%</td>
+<td class="num-c pct-val">83.9%</td>
 </tr><tr>
 <td class="area-name">Nadroga/Navosa</td>
-<td class="num-c">3</td>
-<td class="num-c complete">3</td>
-<td class="num-c">3</td>
+<td class="num-c">4</td>
+<td class="num-c complete">4</td>
+<td class="num-c">4</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">10.0%</td>
+<td class="num-c pct-val">12.9%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
 <td class="num-c complete">1</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
 <td class="num-c">0</td>
-<td class="num-c refused">6</td>
+<td class="num-c refused">7</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
@@ -247,16 +258,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">86.7%</td>
+<td class="num-c pct-val">83.9%</td>
 </tr><tr class="prov-label-row"><td colspan="8">Nadroga/Navosa</td></tr><tr class="adm3-row">
 <td class="area-name">Noikoro</td>
-<td class="num-c">2</td>
-<td class="num-c complete">2</td>
-<td class="num-c">2</td>
+<td class="num-c">3</td>
+<td class="num-c complete">3</td>
+<td class="num-c">3</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">6.7%</td>
+<td class="num-c pct-val">9.7%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Navatusila</td>
 <td class="num-c">1</td>
@@ -265,16 +276,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
 <td class="num-c complete">1</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
 <td class="num-c">0</td>
-<td class="num-c refused">6</td>
+<td class="num-c refused">7</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr></tbody>
   </table>
 
@@ -296,7 +307,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">53.3%</td>
+<td class="num-c pct-val">51.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Navaga</td>
 <td class="num-c">3</td>
@@ -305,7 +316,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">10.0%</td>
+<td class="num-c pct-val">9.7%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Nasivikoso</td>
 <td class="num-c">2</td>
@@ -314,7 +325,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">6.7%</td>
+<td class="num-c pct-val">6.5%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tabalei</td>
 <td class="num-c">2</td>
@@ -323,7 +334,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">6.7%</td>
+<td class="num-c pct-val">6.5%</td>
 </tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">1</td>
@@ -332,7 +343,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Nadevo</td>
 <td class="num-c">1</td>
@@ -341,7 +352,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tabuquto</td>
 <td class="num-c">1</td>
@@ -350,12 +361,13 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.3%</td>
+<td class="num-c pct-val">3.2%</td>
 </tr></tbody></table>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -365,24 +377,24 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Shannon Chand</td>
-<td class="num-c">28</td>
-<td class="num-c complete">23</td>
-<td class="num-c">28</td>
+<td class="num-c">29</td>
+<td class="num-c complete">24</td>
+<td class="num-c">29</td>
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">76.7%</td>
+<td class="num-c pct-val">77.4%</td>
 </tr><tr>
 <td class="area-name">Elina Seninunukula</td>
-<td class="num-c">8</td>
+<td class="num-c">9</td>
 <td class="num-c complete">7</td>
-<td class="num-c">8</td>
+<td class="num-c">9</td>
 <td class="num-c">0</td>
-<td class="num-c refused">1</td>
+<td class="num-c refused">2</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">23.3%</td>
+<td class="num-c pct-val">22.6%</td>
 </tr></tbody>
-  </table>
+  </table></div>
 </div>
 <div class="tab-content hidden" id="content-Kiribati">
   <h2>&#x1F1F0;&#x1F1EE; Kiribati &mdash; Progress Overview</h2>
@@ -397,7 +409,8 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -424,7 +437,7 @@
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
@@ -678,7 +691,8 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -714,7 +728,7 @@
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">6.1%</td>
 </tr></tbody>
-  </table>
+  </table></div>
 </div>
 <div class="tab-content hidden" id="content-Tonga">
   <h2>&#x1F1F9;&#x1F1F4; Tonga &mdash; Progress Overview</h2>
@@ -729,7 +743,8 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -765,7 +780,7 @@
 <td class="num-c callback">6</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
@@ -902,7 +917,8 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -929,7 +945,7 @@
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">2.6%</td>
 </tr></tbody>
-  </table>
+  </table></div>
 </div>
 <div class="tab-content hidden" id="content-Solomon">
   <h2>&#x1F1F8;&#x1F1E7; Solomon Islands &mdash; Progress Overview</h2>
@@ -944,7 +960,8 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -971,7 +988,7 @@
 <td class="num-c callback">1</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
@@ -1010,7 +1027,8 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <table>
+  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total Calls</th>
     <th class="th-c">Completed</th>
     <th class="th-c">Answered</th>
@@ -1046,7 +1064,7 @@
 <td class="num-c callback">1</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
-  </table>
+  </table></div>
 </div>
 
 <footer>Dashboard updated manually &nbsp;&middot;&nbsp; Raw survey data is not published</footer>
