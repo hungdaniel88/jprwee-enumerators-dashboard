@@ -126,13 +126,12 @@
     .table-wrap::-webkit-scrollbar{ height:4px; }
     .table-wrap::-webkit-scrollbar-track{ background:#1a2430; border-radius:2px; }
     .table-wrap::-webkit-scrollbar-thumb{ background:#2a5070; border-radius:2px; }
-    .table-wrap table{ width:650px; min-width:650px; margin-bottom:0; table-layout:fixed; }
-    .table-wrap table th{ white-space:nowrap; font-size:.72rem; padding:8px 10px; }
-    .table-wrap table td{ padding:7px 10px; }
-    .table-wrap .adm3-header-table{ border-radius:6px 6px 0 0; }
-    .table-wrap .adm3-block{ border-left:1px solid var(--adm3-block-border); border-right:1px solid var(--adm3-block-border); }
-    .table-wrap .adm3-block:last-child{ border-bottom:1px solid var(--adm3-block-border); border-radius:0 0 6px 6px; }
-    .table-wrap .adm3-inner-table{ width:650px; min-width:650px; }
+    .table-wrap table{ width:580px; min-width:580px; margin-bottom:0; table-layout:fixed; }
+    .table-wrap table th{ white-space:nowrap; font-size:.68rem; padding:7px 10px; letter-spacing:.3px; }
+    .table-wrap table td{ padding:6px 10px; font-size:.82rem; }
+    .table-wrap .prov-label-row td{ font-size:.68rem; padding:4px 10px; letter-spacing:.3px; }
+    .table-wrap .adm3-row td{ padding:6px 10px; font-size:.82rem; }
+    .table-wrap .adm3-inner-table{ width:580px; min-width:580px; }
     .table-note{ font-size:.7rem; }
   }
 </style>
@@ -142,7 +141,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-05 11:54 Fiji Time &nbsp;·&nbsp; 203 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-05 12:20 Fiji Time &nbsp;·&nbsp; 207 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
@@ -153,12 +152,12 @@
 <div class="overall">
   <div class="overall-left">
     <div class="overall-label">Overall Progress &mdash; all 4 countries</div>
-    <div><span class="overall-num">135</span> <span class="overall-target">/ 1600 target</span></div>
+    <div><span class="overall-num">138</span> <span class="overall-target">/ 1600 target</span></div>
     <div class="overall-sub">Completed = answered + consented + confirmed adult</div>
   </div>
   <div class="overall-right">
-    <div class="overall-bar-wrap"><div class="overall-bar" style="width:8%"></div></div>
-    <div class="overall-pct">8%</div>
+    <div class="overall-bar-wrap"><div class="overall-bar" style="width:9%"></div></div>
+    <div class="overall-pct">9%</div>
   </div>
 </div>
 
@@ -166,26 +165,26 @@
         <div class="country-card" onclick="showTab('Fiji')">
             <div class="card-flag">&#x1F1EB;&#x1F1EF;</div>
             <div class="card-label">Fiji</div>
-            <div class="card-stat">35<span class="card-target">/400</span></div>
+            <div class="card-stat">36<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:9%"></div></div>
             <div class="card-pct">9% complete</div>
-            <div class="card-sub">&#10003; 45 answered &nbsp;·&nbsp; 📵 0 no answer</div>
+            <div class="card-sub">&#10003; 46 answered &nbsp;·&nbsp; 📵 0 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Kiribati')">
             <div class="card-flag">&#x1F1F0;&#x1F1EE;</div>
             <div class="card-label">Kiribati</div>
-            <div class="card-stat">54<span class="card-target">/400</span></div>
+            <div class="card-stat">55<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:14%"></div></div>
             <div class="card-pct">14% complete</div>
-            <div class="card-sub">&#10003; 58 answered &nbsp;·&nbsp; 📵 13 no answer</div>
+            <div class="card-sub">&#10003; 60 answered &nbsp;·&nbsp; 📵 13 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Tonga')">
             <div class="card-flag">&#x1F1F9;&#x1F1F4;</div>
             <div class="card-label">Tonga</div>
-            <div class="card-stat">45<span class="card-target">/400</span></div>
-            <div class="progress-bar-wrap"><div class="progress-bar" style="width:11%"></div></div>
-            <div class="card-pct">11% complete</div>
-            <div class="card-sub">&#10003; 56 answered &nbsp;·&nbsp; 📵 25 no answer</div>
+            <div class="card-stat">46<span class="card-target">/400</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar" style="width:12%"></div></div>
+            <div class="card-pct">12% complete</div>
+            <div class="card-sub">&#10003; 57 answered &nbsp;·&nbsp; 📵 25 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Solomon')">
             <div class="card-flag">&#x1F1F8;&#x1F1E7;</div>
@@ -200,9 +199,9 @@
 <div class="tab-content " id="content-Fiji">
   <h2>&#x1F1EB;&#x1F1EF; Fiji &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">45</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">35</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box"><div class="stat-num">45</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">46</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">36</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">46</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
     <div class="stat-box orange"><div class="stat-num">10</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
@@ -227,16 +226,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">74.3%</td>
+<td class="num-c pct-val">72.2%</td>
 </tr><tr>
 <td class="area-name">Nadroga/Navosa</td>
-<td class="num-c">8</td>
-<td class="num-c complete">8</td>
-<td class="num-c">8</td>
+<td class="num-c">9</td>
+<td class="num-c complete">9</td>
+<td class="num-c">9</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">22.9%</td>
+<td class="num-c pct-val">25.0%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">11</td>
@@ -245,7 +244,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">10</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr></tbody>
   </table></div>
 
@@ -268,16 +267,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">74.3%</td>
+<td class="num-c pct-val">72.2%</td>
 </tr><tr class="prov-label-row"><td colspan="8">Nadroga/Navosa</td></tr><tr class="adm3-row">
 <td class="area-name">Nasikawa</td>
-<td class="num-c">4</td>
-<td class="num-c complete">4</td>
-<td class="num-c">4</td>
+<td class="num-c">5</td>
+<td class="num-c complete">5</td>
+<td class="num-c">5</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">11.4%</td>
+<td class="num-c pct-val">13.9%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Noikoro</td>
 <td class="num-c">3</td>
@@ -286,7 +285,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">8.6%</td>
+<td class="num-c pct-val">8.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Navatusila</td>
 <td class="num-c">1</td>
@@ -295,7 +294,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">11</td>
@@ -304,7 +303,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">10</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr></tbody>
   </table></div>
 
@@ -327,7 +326,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">45.7%</td>
+<td class="num-c pct-val">44.4%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Navaga</td>
 <td class="num-c">3</td>
@@ -336,7 +335,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">8.6%</td>
+<td class="num-c pct-val">8.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Nasivikoso</td>
 <td class="num-c">2</td>
@@ -345,7 +344,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.7%</td>
+<td class="num-c pct-val">5.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tabalei</td>
 <td class="num-c">2</td>
@@ -354,7 +353,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.7%</td>
+<td class="num-c pct-val">5.6%</td>
 </tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">1</td>
@@ -363,7 +362,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Nadevo</td>
 <td class="num-c">1</td>
@@ -372,7 +371,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tabuquto</td>
 <td class="num-c">1</td>
@@ -381,7 +380,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">2.9%</td>
+<td class="num-c pct-val">2.8%</td>
 </tr></tbody></table></div>
 
   <h3>By Enumerator</h3>
@@ -403,27 +402,27 @@
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">68.6%</td>
+<td class="num-c pct-val">66.7%</td>
 </tr><tr>
 <td class="area-name">Elina Seninunukula</td>
-<td class="num-c">16</td>
-<td class="num-c complete">11</td>
-<td class="num-c">16</td>
+<td class="num-c">17</td>
+<td class="num-c complete">12</td>
+<td class="num-c">17</td>
 <td class="num-c">0</td>
 <td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">31.4%</td>
+<td class="num-c pct-val">33.3%</td>
 </tr></tbody>
   </table></div>
 </div>
 <div class="tab-content hidden" id="content-Kiribati">
   <h2>&#x1F1F0;&#x1F1EE; Kiribati &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">71</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">54</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box"><div class="stat-num">58</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">73</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">55</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">60</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">13</div><div class="stat-lbl">No Answer</div></div>
-    <div class="stat-box orange"><div class="stat-num">4</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box orange"><div class="stat-num">5</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
   </div>
 
@@ -440,20 +439,20 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Gilbert Islands</td>
-<td class="num-c">54</td>
-<td class="num-c complete">54</td>
-<td class="num-c">54</td>
+<td class="num-c">55</td>
+<td class="num-c complete">55</td>
+<td class="num-c">55</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">100.0%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">17</td>
+<td class="num-c">18</td>
 <td class="num-c complete">0</td>
-<td class="num-c">4</td>
+<td class="num-c">5</td>
 <td class="num-c">13</td>
-<td class="num-c refused">4</td>
+<td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
@@ -478,16 +477,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">35.2%</td>
+<td class="num-c pct-val">34.5%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">South Tabiteuea</td>
-<td class="num-c">14</td>
-<td class="num-c complete">14</td>
-<td class="num-c">14</td>
+<td class="num-c">15</td>
+<td class="num-c complete">15</td>
+<td class="num-c">15</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">25.9%</td>
+<td class="num-c pct-val">27.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">North Tabiteuea</td>
 <td class="num-c">11</td>
@@ -496,7 +495,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">20.4%</td>
+<td class="num-c pct-val">20.0%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Onotoa</td>
 <td class="num-c">10</td>
@@ -505,14 +504,14 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">18.5%</td>
+<td class="num-c pct-val">18.2%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">17</td>
+<td class="num-c">18</td>
 <td class="num-c complete">0</td>
-<td class="num-c">4</td>
+<td class="num-c">5</td>
 <td class="num-c">13</td>
-<td class="num-c refused">4</td>
+<td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
 <td class="num-c pct-val">&mdash;</td>
 </tr></tbody>
@@ -537,7 +536,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">13.0%</td>
+<td class="num-c pct-val">12.7%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Temotu</td>
 <td class="num-c">4</td>
@@ -546,7 +545,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">7.4%</td>
+<td class="num-c pct-val">7.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Teuaabu</td>
 <td class="num-c">4</td>
@@ -555,7 +554,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">7.4%</td>
+<td class="num-c pct-val">7.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Autukia</td>
 <td class="num-c">2</td>
@@ -564,7 +563,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.7%</td>
+<td class="num-c pct-val">3.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Matang</td>
 <td class="num-c">1</td>
@@ -573,7 +572,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Rotima</td>
 <td class="num-c">1</td>
@@ -582,7 +581,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="prov-label-row"><td colspan="8">Onotoa</td></tr><tr class="adm3-row">
 <td class="area-name">TemaoBuariki</td>
 <td class="num-c">3</td>
@@ -591,7 +590,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.6%</td>
+<td class="num-c pct-val">5.5%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tanaeang_Onotoa</td>
 <td class="num-c">2</td>
@@ -600,7 +599,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.7%</td>
+<td class="num-c pct-val">3.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tekaawa</td>
 <td class="num-c">2</td>
@@ -609,7 +608,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.7%</td>
+<td class="num-c pct-val">3.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Otowae</td>
 <td class="num-c">1</td>
@@ -618,7 +617,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tabuarorae</td>
 <td class="num-c">1</td>
@@ -627,7 +626,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Kaakawa</td>
 <td class="num-c">1</td>
@@ -636,7 +635,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="prov-label-row"><td colspan="8">North Tabiteuea</td></tr><tr class="adm3-row">
 <td class="area-name">Utiroa</td>
 <td class="num-c">4</td>
@@ -645,7 +644,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">7.4%</td>
+<td class="num-c pct-val">7.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tanaeang</td>
 <td class="num-c">3</td>
@@ -654,7 +653,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.6%</td>
+<td class="num-c pct-val">5.5%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Eita</td>
 <td class="num-c">2</td>
@@ -663,7 +662,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.7%</td>
+<td class="num-c pct-val">3.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Terikiai</td>
 <td class="num-c">1</td>
@@ -672,7 +671,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Buota</td>
 <td class="num-c">1</td>
@@ -681,16 +680,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">1.9%</td>
+<td class="num-c pct-val">1.8%</td>
 </tr><tr class="prov-label-row"><td colspan="8">South Tabiteuea</td></tr><tr class="adm3-row">
 <td class="area-name">Buariki</td>
-<td class="num-c">5</td>
-<td class="num-c complete">5</td>
-<td class="num-c">5</td>
+<td class="num-c">6</td>
+<td class="num-c complete">6</td>
+<td class="num-c">6</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">9.3%</td>
+<td class="num-c pct-val">10.9%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Taungaeaka</td>
 <td class="num-c">4</td>
@@ -699,7 +698,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">7.4%</td>
+<td class="num-c pct-val">7.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tewai</td>
 <td class="num-c">3</td>
@@ -708,7 +707,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.6%</td>
+<td class="num-c pct-val">5.5%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Nikutoru</td>
 <td class="num-c">2</td>
@@ -717,7 +716,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">3.7%</td>
+<td class="num-c pct-val">3.6%</td>
 </tr></tbody></table></div>
 
   <h3>By Enumerator</h3>
@@ -733,13 +732,13 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Bwebwenteraoi Francisco</td>
-<td class="num-c">46</td>
-<td class="num-c complete">33</td>
-<td class="num-c">37</td>
+<td class="num-c">48</td>
+<td class="num-c complete">34</td>
+<td class="num-c">39</td>
 <td class="num-c">9</td>
-<td class="num-c refused">4</td>
+<td class="num-c refused">5</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">61.1%</td>
+<td class="num-c pct-val">61.8%</td>
 </tr><tr>
 <td class="area-name">Louisa Karianako</td>
 <td class="num-c">21</td>
@@ -748,7 +747,7 @@
 <td class="num-c">3</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">33.3%</td>
+<td class="num-c pct-val">32.7%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">4</td>
@@ -757,16 +756,16 @@
 <td class="num-c">1</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">5.6%</td>
+<td class="num-c pct-val">5.5%</td>
 </tr></tbody>
   </table></div>
 </div>
 <div class="tab-content hidden" id="content-Tonga">
   <h2>&#x1F1F9;&#x1F1F4; Tonga &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">81</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box green"><div class="stat-num">45</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box"><div class="stat-num">56</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">82</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box green"><div class="stat-num">46</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-box"><div class="stat-num">57</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box grey"><div class="stat-num">25</div><div class="stat-lbl">No Answer</div></div>
     <div class="stat-box orange"><div class="stat-num">2</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box yellow"><div class="stat-num">6</div><div class="stat-lbl">Callback</div></div>
@@ -791,16 +790,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">84.4%</td>
+<td class="num-c pct-val">82.6%</td>
 </tr><tr>
 <td class="area-name">Ha'apai</td>
-<td class="num-c">7</td>
-<td class="num-c complete">7</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
+<td class="num-c complete">8</td>
+<td class="num-c">8</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">15.6%</td>
+<td class="num-c pct-val">17.4%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">36</td>
@@ -832,7 +831,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">62.2%</td>
+<td class="num-c pct-val">60.9%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Hahake</td>
 <td class="num-c">10</td>
@@ -841,16 +840,16 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">22.2%</td>
+<td class="num-c pct-val">21.7%</td>
 </tr><tr class="prov-label-row"><td colspan="8">Ha'apai</td></tr><tr class="adm3-row">
 <td class="area-name">Foa</td>
-<td class="num-c">7</td>
-<td class="num-c complete">7</td>
-<td class="num-c">7</td>
+<td class="num-c">8</td>
+<td class="num-c complete">8</td>
+<td class="num-c">8</td>
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">15.6%</td>
+<td class="num-c pct-val">17.4%</td>
 </tr><tr class="prov-label-row" style="opacity:.5"><td colspan="8">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
 <td class="num-c">36</td>
@@ -882,7 +881,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">31.1%</td>
+<td class="num-c pct-val">30.4%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Pangai</td>
 <td class="num-c">6</td>
@@ -891,7 +890,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">13.3%</td>
+<td class="num-c pct-val">13.0%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Taanga</td>
 <td class="num-c">2</td>
@@ -900,7 +899,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.4%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Mango</td>
 <td class="num-c">2</td>
@@ -909,7 +908,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.4%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Haatua</td>
 <td class="num-c">2</td>
@@ -918,7 +917,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.4%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Tufuvai</td>
 <td class="num-c">2</td>
@@ -927,7 +926,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">4.4%</td>
+<td class="num-c pct-val">4.3%</td>
 </tr><tr class="prov-label-row"><td colspan="8">Hahake</td></tr><tr class="adm3-row">
 <td class="area-name">Tongamamao</td>
 <td class="num-c">9</td>
@@ -936,7 +935,7 @@
 <td class="num-c">0</td>
 <td class="num-c refused">0</td>
 <td class="num-c callback">0</td>
-<td class="num-c pct-val">20.0%</td>
+<td class="num-c pct-val">19.6%</td>
 </tr><tr class="adm3-row">
 <td class="area-name">Petani</td>
 <td class="num-c">1</td>
@@ -961,9 +960,9 @@
     <th class="th-c">% of Calls</th></tr></thead>
     <tbody><tr>
 <td class="area-name">Halatono Fakaosi</td>
-<td class="num-c">80</td>
-<td class="num-c complete">44</td>
-<td class="num-c">55</td>
+<td class="num-c">81</td>
+<td class="num-c complete">45</td>
+<td class="num-c">56</td>
 <td class="num-c">25</td>
 <td class="num-c refused">2</td>
 <td class="num-c callback">6</td>
