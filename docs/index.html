@@ -83,7 +83,11 @@
   .stat-lbl{ font-size:.68rem; color:var(--subtext); margin-top:3px; text-transform:uppercase; letter-spacing:.5px; }
 
   /* TABLES */
-  table{ width:100%; border-collapse:collapse; background:var(--card); border-radius:var(--radius); overflow:hidden; font-size:.82rem; margin-bottom:6px; border:1px solid var(--border); }
+  table{ width:100%; border-collapse:collapse; background:var(--card); border-radius:var(--radius); overflow:hidden; font-size:.82rem; margin-bottom:6px; border:1px solid var(--border); table-layout:fixed; }
+  table th{ overflow:hidden; text-overflow:ellipsis; }
+  table td{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  table th:first-child{ width:18%; text-align:left; }
+  table th.th-c{ width:9.25%; }
   thead{ background:var(--card2); }
   th{ padding:8px 8px; text-align:center; font-weight:600; color:var(--subtext); font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; border-bottom:1px solid var(--border); }
   th:first-child{ text-align:left; }
@@ -146,7 +150,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-05 16:00 Fiji Time &nbsp;·&nbsp; 219 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-05 16:08 Fiji Time &nbsp;·&nbsp; 220 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
@@ -173,7 +177,7 @@
             <div class="card-stat">44<span class="card-target">/400</span></div>
             <div class="progress-bar-wrap"><div class="progress-bar" style="width:11%"></div></div>
             <div class="card-pct">11% complete</div>
-            <div class="card-sub">&#10003; 55 answered &nbsp;·&nbsp; 📵 0 no answer</div>
+            <div class="card-sub">&#10003; 56 answered &nbsp;·&nbsp; 📵 0 no answer</div>
         </div>
         <div class="country-card" onclick="showTab('Kiribati')">
             <div class="card-flag">&#x1F1F0;&#x1F1EE;</div>
@@ -204,10 +208,10 @@
 <div class="tab-content " id="content-Fiji">
   <h2>&#x1F1EB;&#x1F1EF; Fiji &mdash; Progress Overview</h2>
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">55</div><div class="stat-lbl">Total Calls</div></div>
-    <div class="stat-box"><div class="stat-num">55</div><div class="stat-lbl">Answered</div></div>
+    <div class="stat-box"><div class="stat-num">56</div><div class="stat-lbl">Total Calls</div></div>
+    <div class="stat-box"><div class="stat-num">56</div><div class="stat-lbl">Answered</div></div>
     <div class="stat-box green"><div class="stat-num">44</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-box orange"><div class="stat-num">11</div><div class="stat-lbl">Refused</div></div>
+    <div class="stat-box orange"><div class="stat-num">12</div><div class="stat-lbl">Refused</div></div>
     <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">Callback</div></div>
     <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">Not Completed</div></div>
     <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">No Answer</div></div>
@@ -216,7 +220,7 @@
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -247,10 +251,10 @@
 <td class="num-c pct-val">25.0%</td>
 </tr><tr class="unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">12</td>
-<td class="num-c">12</td>
+<td class="num-c">13</td>
+<td class="num-c">13</td>
 <td class="num-c complete">1</td>
-<td class="num-c refused">11</td>
+<td class="num-c refused">12</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
@@ -312,10 +316,10 @@
 <td class="num-c pct-val">2.3%</td>
 </tr><tr class="prov-label-row" style="opacity:.5" style="font-size:.72rem;line-height:1.2;"><td colspan="8" style="font-size:.72rem;padding:4px 10px;letter-spacing:.3px;font-weight:700;text-transform:uppercase;">Unknown</td></tr><tr class="adm3-row unknown-row">
 <td class="area-name">Unknown</td>
-<td class="num-c">12</td>
-<td class="num-c">12</td>
+<td class="num-c">13</td>
+<td class="num-c">13</td>
 <td class="num-c complete">1</td>
-<td class="num-c refused">11</td>
+<td class="num-c refused">12</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
@@ -326,7 +330,7 @@
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -410,7 +414,7 @@
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -431,10 +435,10 @@
 <td class="num-c pct-val">54.5%</td>
 </tr><tr>
 <td class="area-name">Elina Seninunukula</td>
-<td class="num-c">26</td>
-<td class="num-c">26</td>
+<td class="num-c">27</td>
+<td class="num-c">27</td>
 <td class="num-c complete">20</td>
-<td class="num-c refused">6</td>
+<td class="num-c refused">7</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
 <td class="num-c">&mdash;</td>
@@ -457,7 +461,7 @@
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -557,7 +561,7 @@
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -781,7 +785,7 @@
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -838,7 +842,7 @@
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -948,7 +952,7 @@
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -1042,7 +1046,7 @@
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -1089,7 +1093,7 @@
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
@@ -1164,7 +1168,7 @@
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
   <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table><colgroup><col style="width:18%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"><col style="width:9.25%"></colgroup>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Answered</th>
     <th class="th-c">Completed</th>
