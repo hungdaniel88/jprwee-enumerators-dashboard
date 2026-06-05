@@ -21,7 +21,7 @@
     --primary:#185fa5; --green:#1a9e5f; --orange:#c06010; --yellow:#906010; --grey:#6c757d;
     --text:#1a2433; --text2:#2a3a4a; --text3:#4a5a6a; --subtext:#6a7a8a;
     --border:#d0dae4; --border2:#e0eaf4;
-    --prov-bg:#e8eef4; --prov-text:#4a6a8a;
+    --prov-bg:#f0f4f8; --prov-text:#4a6a8a;
     --adm3-bg:#f4f8fc; --adm3-text:#5a7a8a;
     --unknown-text:#9aacb8;
     --overall-accent:#185fa5;
@@ -75,7 +75,7 @@
   .table-note{ font-size:.72rem; color:var(--subtext); margin-bottom:8px; font-style:italic; }
 
   /* STAT BOXES */
-  .stats-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:var(--border); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:20px; }
+    .stats-row{ display:grid; grid-template-columns:repeat(7,1fr); gap:8px; margin-bottom:6px; }
   .stat-box{ background:var(--card); padding:12px 8px; text-align:center; }
   .stat-num{ font-size:1.4rem; font-weight:600; color:var(--text); }
   .stat-box.green .stat-num{ color:var(--green); }
@@ -103,7 +103,7 @@
   .empty{ text-align:center; color:var(--subtext); font-style:italic; padding:16px; }
 
   /* PROVINCE LABEL ROWS */
-  .prov-label-row td{ background:var(--prov-bg); color:var(--prov-text); border-bottom:1px solid var(--border); }
+  .prov-label-row td{ background:#161e28; color:#3a6070; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.4px; padding:4px 8px; border-bottom:1px solid var(--border); width:100%; }
 
   /* ADM3 ROWS */
   .adm3-row td{ background:var(--adm3-bg); color:var(--adm3-text); border-bottom:1px solid var(--border2); padding:7px 8px; text-align:center; }
@@ -146,7 +146,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-05 13:39 Fiji Time &nbsp;·&nbsp; 212 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-05 13:48 Fiji Time &nbsp;·&nbsp; 212 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
