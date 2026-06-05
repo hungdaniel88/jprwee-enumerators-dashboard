@@ -116,22 +116,26 @@
 
   footer{ text-align:center; padding:14px; font-size:.73rem; color:var(--subtext); border-top:1px solid var(--border); background:var(--card); margin-top:20px; }
   .scroll-hint{ display:none; font-size:.7rem; color:var(--subtext); text-align:right; margin-bottom:3px; font-style:italic; }
+  .scroll-bar{ display:none; align-items:center; gap:6px; margin-bottom:6px; }
+  .scroll-bar-line{ flex:1; height:2px; background:linear-gradient(to right,var(--primary) 30%,var(--border) 30%); border-radius:2px; }
+  .scroll-bar-text{ font-size:.7rem; color:var(--subtext); white-space:nowrap; }
   @media(max-width:640px){
-    .scroll-hint{ display:block; }
     .country-cards,.tab-content{ padding:12px 14px; }
     .tabs,header,.overall{ padding:12px 14px; }
     .stats-row{ grid-template-columns:repeat(3,1fr); }
     .tab-content h2{ font-size:.95rem; }
-    .table-wrap{ overflow-x:scroll; -webkit-overflow-scrolling:touch; width:100%; margin-bottom:10px; scrollbar-width:thin; scrollbar-color:#2a5070 #1a2430; }
-    .table-wrap::-webkit-scrollbar{ height:4px; }
-    .table-wrap::-webkit-scrollbar-track{ background:#1a2430; border-radius:2px; }
-    .table-wrap::-webkit-scrollbar-thumb{ background:#2a5070; border-radius:2px; }
-    .table-wrap table{ width:580px; min-width:580px; margin-bottom:0; table-layout:fixed; }
-    .table-wrap table th{ white-space:nowrap; font-size:.68rem !important; padding:7px 10px !important; letter-spacing:.3px !important; }
-    .table-wrap table td{ padding:6px 10px !important; font-size:.82rem !important; }
-    .table-wrap .prov-label-row td{ font-size:.68rem !important; padding:4px 10px !important; letter-spacing:.3px !important; font-weight:700 !important; }
-    .table-wrap .adm3-row td{ padding:6px 10px !important; font-size:.82rem !important; }
-    .table-wrap .adm3-inner-table{ width:580px; min-width:580px; }
+    .scroll-hint{ display:none; }
+    .scroll-bar{ display:flex; }
+    .table-wrap{ overflow-x:scroll; -webkit-overflow-scrolling:touch; width:100%; margin-bottom:10px; scrollbar-width:thin; scrollbar-color:#3a6080 #1a2430; }
+    .table-wrap::-webkit-scrollbar{ height:5px; }
+    .table-wrap::-webkit-scrollbar-track{ background:#1a2430; border-radius:3px; }
+    .table-wrap::-webkit-scrollbar-thumb{ background:#3a6080; border-radius:3px; }
+    .table-wrap table{ width:720px; min-width:720px; margin-bottom:0; table-layout:fixed; }
+    .table-wrap table th{ white-space:nowrap; font-size:.72rem; padding:8px 10px; letter-spacing:.3px; }
+    .table-wrap table td{ padding:7px 10px; font-size:.82rem; }
+    .table-wrap .prov-label-row td{ font-size:.72rem; padding:4px 10px; letter-spacing:.3px; }
+    .table-wrap .adm3-row td{ padding:7px 10px; font-size:.82rem; }
+    .table-wrap .adm3-inner-table{ width:720px; min-width:720px; }
     .table-note{ font-size:.7rem; }
   }
 </style>
@@ -141,7 +145,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-05 12:29 Fiji Time &nbsp;·&nbsp; 209 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-05 12:36 Fiji Time &nbsp;·&nbsp; 209 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
@@ -209,7 +213,7 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -250,7 +254,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -309,7 +313,7 @@
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -385,7 +389,7 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -428,7 +432,7 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -460,7 +464,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -519,7 +523,7 @@
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -721,7 +725,7 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -773,7 +777,7 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -814,7 +818,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -864,7 +868,7 @@
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Village</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -949,7 +953,7 @@
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -992,7 +996,7 @@
 
   <h3>By Province (ADM2)</h3>
   <p class="table-note">% of Calls = completed &divide; that province's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Province</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -1024,7 +1028,7 @@
 
   <h3>By District (ADM3)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known districts add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>District</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
@@ -1056,12 +1060,12 @@
 
   <h3>By Village (ADM4)</h3>
   <p class="table-note">% of Calls = completed &divide; country total completed &mdash; all known villages add up to 100%</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><p class="empty-msg">No village data yet</p></div>
 
   <h3>By Enumerator</h3>
   <p class="table-note">% of Calls = completed &divide; that enumerator's total calls</p>
-  <p class="scroll-hint">&#8592; swipe to see all columns &#8594;</p>
+  <div class="scroll-bar"><div class="scroll-bar-line"></div><div class="scroll-bar-text">&#8592; scroll &#8594;</div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>Enumerator</th><th class="th-c">Total<br>Calls</th>
     <th class="th-c">Completed</th>
