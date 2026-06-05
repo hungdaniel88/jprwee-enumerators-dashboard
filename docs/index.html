@@ -83,7 +83,7 @@
   .stat-lbl{ font-size:.68rem; color:var(--subtext); margin-top:3px; text-transform:uppercase; letter-spacing:.5px; }
 
   /* TABLES */
-  table{ width:100%; border-collapse:collapse; background:var(--card); border-radius:var(--radius); overflow:hidden; font-size:.82rem; margin-bottom:6px; table-layout:fixed; border:1px solid var(--border); }
+  table{ width:100%; border-collapse:collapse; background:var(--card); border-radius:var(--radius); overflow:hidden; font-size:.82rem; margin-bottom:6px; border:1px solid var(--border); }
   thead{ background:var(--card2); }
   th{ padding:8px 8px; text-align:center; font-weight:600; color:var(--subtext); font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; border-bottom:1px solid var(--border); }
   th:first-child{ text-align:left; }
@@ -91,7 +91,7 @@
   td:first-child{ text-align:left; color:var(--text2); font-weight:400; }
   tr:last-child td{ border-bottom:none; }
   tr:not(.prov-label-row):hover td{ background:var(--card2); }
-  .area-name{ width:22%; }
+  .area-name{ min-width:120px; }
   .num-c{ text-align:center; font-variant-numeric:tabular-nums; }
   .complete{ color:var(--green); font-weight:500; }
   .num-c{ color:var(--text3); }
@@ -107,7 +107,7 @@
 
   /* ADM3 ROWS */
   .adm3-row td{ background:var(--adm3-bg); color:var(--adm3-text); border-bottom:1px solid var(--border2); padding:7px 8px; text-align:center; }
-  .adm3-row td:first-child{ text-align:left; font-weight:400; width:22%; }
+  .adm3-row td:first-child{ text-align:left; font-weight:400; min-width:120px; }
   .adm3-row:last-child td{ border-bottom:none; }
   .adm3-row:hover td{ filter:brightness(1.1); }
   .adm3-row.unknown-row td{ color:var(--unknown-text); }
@@ -146,7 +146,7 @@
   <div class="header-left">
     <h1>JP-RWEE Data Collection Calls Monitoring Dashboard</h1>
     <div class="sub">Joint Programme for Rural Women Economic Empowerment</div>
-    <div class="meta">Last updated: 2026-06-05 13:48 Fiji Time &nbsp;·&nbsp; 212 total records pulled from KoboToolbox</div>
+    <div class="meta">Last updated: 2026-06-05 13:52 Fiji Time &nbsp;·&nbsp; 212 total records pulled from KoboToolbox</div>
   </div>
   <div class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
     <span id="themeIcon">&#9728;</span>
