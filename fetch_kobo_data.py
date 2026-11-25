@@ -27,7 +27,7 @@ import requests
 # ─────────────────────────────────────────────
 CONFIG = {
     # Your KoboToolbox API token
-    "api_token": "2b3cf243617e5905c7db481b19d2d0100397dc0f",
+    "api_token": "",
 
     # KoboToolbox server (EU instance)
     "kobo_server": "https://eu.kobotoolbox.org",
