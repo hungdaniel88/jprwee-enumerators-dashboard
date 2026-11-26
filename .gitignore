@@ -11,3 +11,4 @@ secrets.txt
 # OS
 .DS_Store
 Thumbs.db
+fetch_kobo_data.py
